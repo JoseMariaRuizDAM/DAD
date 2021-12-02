@@ -1,0 +1,7 @@
+D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.AssemblyReference.cache
+D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.login.resources
+D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.PersonalSanitario.resources
+D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.Properties.Resources.resources
+D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.GenerateResource.cache
+D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.CoreCompileInputs.cache
+D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.AdministrativoPantalla.resources

@@ -1,0 +1,9 @@
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\bin\Debug\Controlador.dll
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\bin\Debug\Controlador.pdb
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\bin\Debug\Modelo.dll
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\bin\Debug\Modelo.pdb
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\obj\Debug\Controlador.dll
+D:\2ºDAM\DAD\c#\ClinicaVista\Controlador\obj\Debug\Controlador.pdb

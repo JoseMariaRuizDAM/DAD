@@ -1,0 +1,8 @@
+admin;admin;administrador
+juan;j4;direccion
+isabel;i6;administrativo
+pepe;p4;personalsanitario
+laura;l5;personalsanitario
+susana;s6;administrador
+ramon;r5;administrativo
+ines;i4;personalsanitario
