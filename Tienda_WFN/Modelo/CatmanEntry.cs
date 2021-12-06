@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class CatmanEntry
+    public class CatmanEntry
     {
         public static readonly String TABLE = "catman";
         public static readonly String ID = "id";

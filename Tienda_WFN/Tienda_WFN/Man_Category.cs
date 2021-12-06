@@ -16,7 +16,8 @@ namespace Tienda_WFN
     public partial class Man_Category : Form
     {
         DataSet ds = new DataSet();
-        CategoryDAO categoriaDao = new CategoryDAO();
+        CatmanDAO catmanDao = new CatmanDAO();
+
         public Man_Category()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace Tienda_WFN
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter dataadapter = new SqlDataAdapter(sql, connection);
             connection.Open();
-            dataadapter.Fill(ds, CategoryEntry.TABLE);
+            dataadapter.Fill(ds, CatmanEntry.TABLE);
             connection.Close();
 
             dataGridView1.DataSource = ds.Tables[0];
