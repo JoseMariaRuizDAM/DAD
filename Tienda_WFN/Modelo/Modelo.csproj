@@ -87,6 +87,8 @@
     <Compile Include="Category.cs" />
     <Compile Include="CategoryDAO.cs" />
     <Compile Include="CategoryEntry.cs" />
+    <Compile Include="CatmanDAO.cs" />
+    <Compile Include="CatmanEntry.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="UserEntry.cs" />
     <Compile Include="UserDAO.cs" />

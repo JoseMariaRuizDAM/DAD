@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class CategoryEntry
+    public class CategoryEntry
     {
         public static readonly String TABLE = "categories";
         public static readonly String ID = "id_category";

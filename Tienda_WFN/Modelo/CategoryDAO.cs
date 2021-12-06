@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,10 @@ namespace Modelo
     {
 
         private static DBConnection dataSource;
-
+        MySqlConnection connection = null;
+        MySqlCommand mysqlCmd = null;
+        MySqlDataReader mysqlReader = null;
+        SqlDataAdapter adaptador = new SqlDataAdapter();
         public CategoryDAO()
         {
             dataSource = DBConnection.getInstance();
@@ -19,9 +23,7 @@ namespace Modelo
 
         public List<String> findAll()
         {
-            MySqlConnection connection = null;
-            MySqlCommand mysqlCmd = null;
-            MySqlDataReader mysqlReader = null;
+            
 
             //Unable to connect database.
             List<string> nombres = null;
@@ -45,5 +47,7 @@ namespace Modelo
             catch(Exception ex) { }
             return nombres;
         }
+
+        
     }
 }

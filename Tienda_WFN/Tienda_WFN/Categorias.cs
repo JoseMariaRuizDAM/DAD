@@ -16,6 +16,7 @@ namespace Tienda_WFN
         public Categorias()
         {
             InitializeComponent();
+            crearBotones();
         }
 
         private void crearBotones()

@@ -21,6 +21,13 @@ namespace Controlador
             return cdao.findAll();
         }
 
+        public void rellenarDataGrid()
+        {
+            string consulta = "SELECT * FROM " + CategoryEntry.TABLE;
+            SqlDataAdapter adaptador = new SqlDataAdapter()
+
+        }
+
 
     }
 }
