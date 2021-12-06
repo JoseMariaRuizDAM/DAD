@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
@@ -24,7 +25,8 @@ namespace Modelo
             //Unable to connect database.
             bool validar = false;
 
-            string sql = "SELECT * FROM users where id_staff= @name and password= @contra";
+            string sql = "SELECT * FROM " + UserEntry.TABLE + " where " + 
+                UserEntry.ID + "= @name and " + UserEntry.CONTRASENA + "= @contra";
             try
             {
                 connection = dataSource.getConnection(); //Establecer la cadena de conexión.

@@ -84,10 +84,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="CategoryDAO.cs" />
+    <Compile Include="CategoryEntry.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="UserEntry.cs" />
     <Compile Include="UserDAO.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

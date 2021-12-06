@@ -10,10 +10,17 @@ namespace Controlador
     public class Controlador
     {
         UserDAO udao = new UserDAO();
-
+        CategoryDAO cdao = new CategoryDAO();
         public bool validador(long id, String pass)
         {
             return udao.checkUser(id, pass);
         }
+
+        public List<String> recogerCategorias()
+        {
+            return cdao.findAll();
+        }
+
+
     }
 }

@@ -13,6 +13,7 @@ namespace Tienda_WFN
     public partial class Login : Form
     {
         Controlador.Controlador c = new Controlador.Controlador();
+        Categorias categorias = new Categorias();
         public Login()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace Tienda_WFN
 
         private void Login_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == '\r')
+            if (e.KeyChar == '\r')
             {
                 validarUsuario();
             }
@@ -38,6 +39,9 @@ namespace Tienda_WFN
                 if (c.validador(long.Parse(user_box.Text), password_box.Text))
                 {
                     MessageBox.Show("Bienvenido");
+                    categorias.Show();
+                    user_box.Clear();
+                    password_box.Clear();
                 }
                 else
                 {
@@ -53,4 +57,5 @@ namespace Tienda_WFN
                 password_box.Clear();
             }
         }
+    }
 }
