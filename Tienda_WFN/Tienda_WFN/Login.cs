@@ -12,13 +12,15 @@ namespace Tienda_WFN
 {
     public partial class Login : Form
     {
-        Controlador.Controlador c = new Controlador.Controlador();
+        Controlador.ControladorUsuarios c = new Controlador.ControladorUsuarios();
         Categorias categorias = new Categorias();
         public Login()
         {
             InitializeComponent();
         }
-
+        /**
+         * Metodo para validar el usuario cuando introduzca los datos y apriete en la tecla enter
+         */
         private void Login_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
@@ -27,22 +29,38 @@ namespace Tienda_WFN
             }
         }
 
+        /**
+         * Metodo para validar el usuario cuando introduzca los datos y apriete en el botón
+         */
         private void button1_Click(object sender, EventArgs e)
         {
             validarUsuario();
         }
 
+        /**
+         * Metodo para mostrar al usuario un MessageBox según si esta dentro de la base de datos o no
+         */
+
         private void validarUsuario()
         {
             try
             {
+                /**
+                 * en caso de que el usuario este dentro de la base de dato se le lanza un mensaje de bienvenida
+                 * y se limpia los campos que ha completado.
+                 */
+
                 if (c.validador(long.Parse(user_box.Text), password_box.Text))
                 {
-                    MessageBox.Show("Bienvenido");
+                    MessageBox.Show("Bienvenido"); 
                     categorias.Show();
                     user_box.Clear();
                     password_box.Clear();
                 }
+                /**
+                 * En caso de que el usuario no este registrado en la base de dato se le lanza un mensaje de bienvenida
+                 * y se limpia los campos que ha completado.
+                 */
                 else
                 {
                     MessageBox.Show("No existes en la base de datos");

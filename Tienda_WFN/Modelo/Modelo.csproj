@@ -70,6 +70,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,15 +85,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category.cs" />
-    <Compile Include="CategoryDAO.cs" />
-    <Compile Include="CategoryEntry.cs" />
-    <Compile Include="CatmanDAO.cs" />
-    <Compile Include="CatmanEntry.cs" />
-    <Compile Include="DBConnection.cs" />
-    <Compile Include="UserEntry.cs" />
-    <Compile Include="UserDAO.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="entities\Category.cs" />
+    <Compile Include="dao\CategoryDAO.cs" />
+    <Compile Include="utilities\CategoryEntry.cs" />
+    <Compile Include="entities\Catman.cs" />
+    <Compile Include="dao\CatmanDAO.cs" />
+    <Compile Include="utilities\CatmanEntry.cs" />
+    <Compile Include="utilities\DBConnection.cs" />
+    <Compile Include="utilities\UserEntry.cs" />
+    <Compile Include="dao\UserDAO.cs" />
+    <Compile Include="entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

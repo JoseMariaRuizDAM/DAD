@@ -12,16 +12,22 @@ namespace Tienda_WFN
 {
     public partial class Categorias : Form
     {
-        Controlador.Controlador c = new Controlador.Controlador();
+        Controlador.ControladorCategorias controlador = new Controlador.ControladorCategorias();
         public Categorias()
         {
             InitializeComponent();
             crearBotones();
         }
 
+        /**
+         *Metodo para crear los botones de las categorias,
+         *utilizando las categorias que existen dentro de la base de datos
+         *Los botones son dinamicos, por lo que tiene que leer la base de datos y se van añadiendo con una posición
+         *según el número de botón que sea
+         */ 
         private void crearBotones()
         {
-            List<String> categorias = c.recogerCategorias();
+            List<String> categorias = controlador.recogerCategorias();
             for(int i = 0; i < categorias.Count; i++)
             {
                 Button btn = new Button();

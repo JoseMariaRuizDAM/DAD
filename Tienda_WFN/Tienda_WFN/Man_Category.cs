@@ -10,32 +10,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo;
+using Controlador;
 
 namespace Tienda_WFN
 {
     public partial class Man_Category : Form
     {
-        DataSet ds = new DataSet();
-        CatmanDAO catmanDao = new CatmanDAO();
-
+        Controlador.ControladorCatman controlador = new Controlador.ControladorCatman();
+        AddItem addItem = new AddItem();
+        /**
+         * Cuando se carga el formulario se añade la lista del datagridview
+         */
         public Man_Category()
         {
             InitializeComponent();
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            string connectionString = "Persist Security Info = False; Integrated Security = SSPI; database = shop; server = (local)";
-            string sql = "SELECT title_id,title,type,pub_id FROM Titles";
-            SqlConnection connection = new SqlConnection(connectionString);
-            SqlDataAdapter dataadapter = new SqlDataAdapter(sql, connection);
-            connection.Open();
-            dataadapter.Fill(ds, CatmanEntry.TABLE);
-            connection.Close();
-
-            dataGridView1.DataSource = ds.Tables[0];
-
-
+            
         }
         
+        public void Man_Category_Load(object sender, EventArgs e)
+        {
+            controlador.tablaCatman(); // metodo de llamada para recoger los datos de la base de datos al datagridview
+            listBox1.DataSource = controlador.listaCategorias(); // con este metodo estoy añadiendo la lista en el listBox.
+        }
+
+        /**
+         * Metodo filtra la lista del datagrid según selecciona en listbox el usuario
+         * y aprieta en el boton.
+         */
+        private void filter_btn_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem != null)
+            {
+                string selectCategoria = listBox1.SelectedItem.ToString();
+                dataGridView1.DataSource = dataGridView1.Columns.Contains(selectCategoria);
+            }
+            else
+            {
+                MessageBox.Show("No has seleccionado ninguna categoria");
+            }
+            
+        }
+
+        private void Add_btn_Click(object sender, EventArgs e)
+        {
+            addItem.Show();
+        }
     }
 }
