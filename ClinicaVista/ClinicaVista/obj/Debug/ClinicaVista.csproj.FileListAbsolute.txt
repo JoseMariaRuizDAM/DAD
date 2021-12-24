@@ -12,3 +12,13 @@ C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVi
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.Properties.Resources.resources
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.GenerateResource.cache
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.CoreCompileInputs.cache
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\ClinicaVista.exe.config
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\ClinicaVista.exe
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\ClinicaVista.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\Controlador.dll
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\Modelo.dll
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\Controlador.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\Modelo.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.CopyComplete
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.exe
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.pdb

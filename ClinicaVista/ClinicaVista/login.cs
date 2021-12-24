@@ -24,16 +24,26 @@ namespace ClinicaVista
         {
 
         }
-
+        /**
+         * Función que se ejecuta cuando el usuario presiona el botón de login
+         */
         private void botonLogin_Click(object sender, EventArgs e)
         {
             String usuario = textUsuario.Text;
             String contraseña = textContraseña.Text;
 
             String autenticarRol = new Controlador.ControladorClase().autenticarUsuario(usuario, contraseña);
+            Console.WriteLine(autenticarRol);
+            
+            getSessionRol(autenticarRol);
             
         }
 
+        /**
+         * Función que comprueba el rol del usuario
+         * Mostrara un mensaje si el @rol es "director" o "administrador"
+         * En caso de que el @rol sea "administrativo" o "PersonalSanitario" se mostrara el formulario correspondiente
+         */
         private void getSessionRol(String rol)
         {
             switch (rol)

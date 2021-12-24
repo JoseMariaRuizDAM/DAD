@@ -9,7 +9,7 @@ namespace Modelo.dao
 {
 	public class UserDao
 	{
-		//User user;
+		User user;
 		String archivo = "users.txt"; //nombre del archivo donde se recoge la información de los usuarios
 		int numUsuarios = 8; //número de usuarios que hay dentro del archivo users.txt
 		
@@ -19,8 +19,9 @@ namespace Modelo.dao
 		public UserDao(){}
 
 		// Metodo para leer el archivo users.txt y devolver el rol del nombre
-		public String leerArchivo(User user)
+		public String leerArchivo(User usuario)
 		{
+            user = new User(usuario.Nombre, usuario.Contraseña);
             String rol = "";
             try
             {
@@ -36,17 +37,21 @@ namespace Modelo.dao
                         nombre[cont] = partes[0]; // nombre del nombre en el archivo
                         contra[cont] = partes[1]; // contraseña del nombre en el archivo
                         puesto[cont] = partes[2]; // rol del nombre en el archivo
-                        cont++; // se usa el contador para saber que nombre es y se suma uno a cada vuelta del foreach
-                    
-                        //Se comprueba si es igual el nombre que se le ha pasado a los datos que estan dentro del archivo
-                        if (nombre[cont].Equals(user.Nombre) && contra[cont].Equals(user.Contraseña))
+                    Console.WriteLine("nombre dao " + cont + " " + nombre[cont] + "\nNombre usuario"+ user.Nombre  );
+                    Console.WriteLine("contraseña dao " + cont + " " + contra[cont] + "\nContra usuario" + user.Contraseña);
+                    String recogerNombre = nombre[cont];
+                    String recogerContra = contra[cont];
+                    //Se comprueba si es igual el nombre que se le ha pasado a los datos que estan dentro del archivo
+                    if (recogerNombre.Equals(user.Nombre) && recogerContra.Equals(user.Contraseña))
                         {
-                            rol = puesto[cont];
+                            return rol = puesto[cont];
                         }
                         else
                         {
-                            rol = "Usuario no existe";
+                            return rol = "Usuario no existe";
                         }
+                        cont++; // se usa el contador para saber que nombre es y se suma uno a cada vuelta del foreach
+
                 }
             }
             catch(Exception e){
@@ -54,7 +59,6 @@ namespace Modelo.dao
                 MessageBox.Show("Ha habido un error: " + error, "Error");
                 rol = null;
             }
-            return rol;
         }
         public String checkUser(User user)
 		{

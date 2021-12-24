@@ -11,3 +11,8 @@ C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\obj\Debug\Controlado
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\obj\Debug\Controlador.dll
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\obj\Debug\Controlador.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\bin\Debug\Controlador.dll
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\bin\Debug\Modelo.dll
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Controlador\obj\Debug\Controlador.csproj.CopyComplete

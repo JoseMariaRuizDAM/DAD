@@ -73,7 +73,6 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Modelo.cs" />
     <Compile Include="PersonalSanitario.cs">
       <SubType>Form</SubType>
     </Compile>
