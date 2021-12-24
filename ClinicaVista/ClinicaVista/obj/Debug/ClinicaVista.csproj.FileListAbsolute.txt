@@ -5,3 +5,10 @@ D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.Properties.Res
 D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.GenerateResource.cache
 D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.CoreCompileInputs.cache
 D:\2ºDAM\DAD\c#\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.AdministrativoPantalla.resources
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.AssemblyReference.cache
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.AdministrativoPantalla.resources
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.login.resources
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.PersonalSanitario.resources
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.Properties.Resources.resources
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.GenerateResource.cache
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.CoreCompileInputs.cache

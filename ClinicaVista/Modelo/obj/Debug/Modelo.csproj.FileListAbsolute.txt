@@ -4,3 +4,9 @@ D:\2ºDAM\DAD\c#\ClinicaVista\Modelo\bin\Debug\Modelo.dll
 D:\2ºDAM\DAD\c#\ClinicaVista\Modelo\bin\Debug\Modelo.pdb
 D:\2ºDAM\DAD\c#\ClinicaVista\Modelo\obj\Debug\Modelo.dll
 D:\2ºDAM\DAD\c#\ClinicaVista\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Modelo\bin\Debug\Modelo.dll
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Modelo\obj\Debug\Modelo.dll
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\Modelo\obj\Debug\Modelo.pdb

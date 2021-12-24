@@ -12,6 +12,8 @@ namespace ClinicaVista
 {
     public partial class login : Form
     {
+        AdministrativoPantalla administrativo = new AdministrativoPantalla();
+        PersonalSanitario sanitario = new PersonalSanitario();
         public login()
         {
 
@@ -27,73 +29,37 @@ namespace ClinicaVista
         {
             String usuario = textUsuario.Text;
             String contraseña = textContraseña.Text;
-            new Controlador.ControladorClase().autenticarUsuario(usuario);
 
-            String[] lines = System.IO.File.ReadAllLines("users.txt");
-            String[] nombre = new string[8];
-            String[] contra = new String[8];
-            String[] puesto = new String[8];
-            int cont = 0;
-            foreach (String line in lines)
-            {
-                String[] partes = line.Split(";");
+            String autenticarRol = new Controlador.ControladorClase().autenticarUsuario(usuario, contraseña);
+            
+        }
 
-                nombre[cont] = partes[0];
-                contra[cont] = partes[1];
-                puesto[cont] = partes[2];
-                cont++;
-                if (nombre[cont].Equals(usuario) && contra[cont].Equals(contraseña))
-                {
-                    switch (puesto[cont])
-                    {
-                        case "director":
-                            MessageBox.Show("Bienvenido Director" +
-                    "\nTe has registrado Correctamente" +
-                    "\n\nLo lamentamos, esta sección esta en construcción", "Aviso");
-                            break;
-                        case "administrador":
-                            MessageBox.Show("Bienvenido Administrador" +
-                     "\nTe has registrado Correctamente" +
-                     "\n\nLo lamentamos, esta sección esta en construcción", "Aviso");
-                            break;
-                            break;
-                        case "administrativo":
-                            new AdministrativoPantalla().Visible = true;
-                            break;
-                        case "personalsanitario":
-                            new PersonalSanitario().Visible = true;
-                            
-                            break;
-                        default:
-                            MessageBox.Show("No estas registrado en el sistema", "Aviso");
-                            break;
-                    }
-                }
-            }
-            /*
-            switch (usuario)
+        private void getSessionRol(String rol)
+        {
+            switch (rol)
             {
                 case "director":
+                    //Muestra el mensaje siguiente en una ventana emergente
                     MessageBox.Show("Bienvenido Director" +
                     "\nTe has registrado Correctamente" +
                     "\n\nLo lamentamos, esta sección esta en construcción", "Aviso");
                     break;
                 case "administrador":
+                    //Muestra el mensaje siguiente en una ventana emergente
                     MessageBox.Show("Bienvenido Administrador" +
                     "\nTe has registrado Correctamente" +
                     "\n\nLo lamentamos, esta sección esta en construcción", "Aviso");
                     break;
                 case "administrativo":
-                    new AdministrativoPantalla().Visible = true;
+                    administrativo.Show(); // abre el formulario AdministrativoPantalla
                     break;
-                case "personalSanitario":
-                    new PersonalSanitario().Visible = true;
+                case "personalsanitario":
+                    sanitario.Show(); // abre el formulario PersonalSanitario
                     break;
                 default:
-                    MessageBox.Show("No estas registrado en el sistema", "Aviso");
+                    MessageBox.Show("No has añadido un usuario correcto", "Aviso");
                     break;
-            }*/
-            
+            }
         }
     }
 }

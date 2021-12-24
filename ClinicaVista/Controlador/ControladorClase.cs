@@ -9,51 +9,48 @@ namespace Controlador
     public class ControladorClase
     {
 
-        Modelo.ModeloClase m = new Modelo.ModeloClase();
-
-        public String autenticarUsuario(String user, String contraseña)
+        Modelo.User m = new Modelo.User();
+        Modelo.dao.UserDao udao = new Modelo.dao.UserDao();
+        
+        /**
+         * Este metodo que usa @user y @contraseña
+         * se usa para autentificar el usuario que se ha logeado
+         * en la pantalla del login.
+         * Recoge los datos y según el rol que tenga
+         * devolvera un mensaje o hara que se abra una interfaz
+         * dependiendo del rol del usuario
+         */
+        public String autenticarUsuario(String nombre, String contraseña)
         {
-            String[] lines = System.IO.File.ReadAllLines("users.txt");
-            String[] nombre = new string[8];
-            String[] contra = new String[8];
-            String[] puesto = new String[8];
-            int cont = 0;
-            foreach (String line in lines)
+            m.Nombre = nombre;
+            m.Contraseña = contraseña;
+
+            String rol = udao.leerArchivo(m);
+
+            switch (nombre)
             {
-                String[] partes = line.Split(";");
-
-                    nombre[cont] = partes[0];
-                    contra[cont] = partes[1];
-                    puesto[cont] = partes[2];
-                    cont++;
-                if (nombre[cont].Equals(user) && contra[cont].Equals(contraseña))
-                {
-                    switch (puesto[cont])
-                    {
-                        case "director":
-                            return "Bienvenido Director" +
-                            "\nTe has registrado Correctamente" +
-                            "\n\nLo lamentamos, esta sección esta en construcción";
-                            break;
-                        case "administrador":
-                            return "Bienvenido Administrador" +
-                            "\nTe has registrado Correctamente" +
-                            "\n\nLo lamentamos, esta sección esta en construcción";
-                            break;
-                        case "administrativo":
-                            return null;
-                            break;
-                        case "personalsanitario":
-                            return null;
-                            break;
-                        default:
-                            return null;
-                            break;
-                    }
-                }
+                case "director":
+                    //Devuelve el mensaje siguiente para que lo muestre en el login
+                    return "Bienvenido Director" +
+                    "\nTe has registrado Correctamente" +
+                    "\n\nLo lamentamos, esta sección esta en construcción";
+                    break;
+                case "administrador":
+                    //Devuelve el mensaje siguiente para que lo muestre en el login
+                    return "Bienvenido Administrador" +
+                    "\nTe has registrado Correctamente" +
+                    "\n\nLo lamentamos, esta sección esta en construcción";
+                    break;
+                case "administrativo":
+                    return user; // devuelve el usuario al login
+                    break;
+                case "personalsanitario":
+                    return user; // devuelve el usuario al login
+                    break;
+                default:
+                    return "No has añadido un usuario correcto";
+                    break;
             }
-
-            
         }
     }
     
