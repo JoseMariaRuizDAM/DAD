@@ -22,7 +22,7 @@ namespace Modelo.dao
 		public String leerArchivo(User usuario)
 		{
             user = new User(usuario.Nombre, usuario.Contraseña);
-            String rol = "";
+            String rol = null;
             try
             {
                 String[] lines = System.IO.File.ReadAllLines(archivo); // Se leen todas la lineas del documento
@@ -37,18 +37,16 @@ namespace Modelo.dao
                         nombre[cont] = partes[0]; // nombre del nombre en el archivo
                         contra[cont] = partes[1]; // contraseña del nombre en el archivo
                         puesto[cont] = partes[2]; // rol del nombre en el archivo
-                    Console.WriteLine("nombre dao " + cont + " " + nombre[cont] + "\nNombre usuario"+ user.Nombre  );
-                    Console.WriteLine("contraseña dao " + cont + " " + contra[cont] + "\nContra usuario" + user.Contraseña);
-                    String recogerNombre = nombre[cont];
-                    String recogerContra = contra[cont];
+                        String recogerNombre = nombre[cont];
+                        String recogerContra = contra[cont];
                     //Se comprueba si es igual el nombre que se le ha pasado a los datos que estan dentro del archivo
-                    if (recogerNombre.Equals(user.Nombre) && recogerContra.Equals(user.Contraseña))
+                        if (recogerNombre.Equals(user.Nombre) && recogerContra.Equals(user.Contraseña))
                         {
-                            return rol = puesto[cont];
+                            rol = puesto[cont];
                         }
-                        else
+                        else if(rol == null)
                         {
-                            return rol = "Usuario no existe";
+                            rol = "Usuario no existe";
                         }
                         cont++; // se usa el contador para saber que nombre es y se suma uno a cada vuelta del foreach
 
@@ -59,6 +57,7 @@ namespace Modelo.dao
                 MessageBox.Show("Ha habido un error: " + error, "Error");
                 rol = null;
             }
+            return rol;
         }
         public String checkUser(User user)
 		{
