@@ -12,6 +12,8 @@ namespace ClinicaVista
 {
     public partial class AdministrativoPantalla : Form
     {
+
+        CrearPaciente crear = new CrearPaciente();
         public AdministrativoPantalla()
         {
             InitializeComponent();
@@ -50,5 +52,14 @@ namespace ClinicaVista
         {
             menuPacientesAdmin.Visible = true;
         }
-    }
+
+        /*
+         * Función que cuando se presiona sobre el botón agregar paciente
+         * hara que se abra el nuevo formulario para agregar un nuevo paciente
+         */
+		private void toolStripButton2_Click(object sender, EventArgs e)
+		{
+            crear.Show(); //abre una nueva ventana de dialogo con CrearPaciente
+		}
+	}
 }

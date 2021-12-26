@@ -22,3 +22,4 @@ C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\bin\Debug\Modelo.pd
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.csproj.CopyComplete
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.exe
 C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.pdb
+C:\Users\Jose\Documents\GitHub\DAD\ClinicaVista\ClinicaVista\obj\Debug\ClinicaVista.CrearPaciente.resources

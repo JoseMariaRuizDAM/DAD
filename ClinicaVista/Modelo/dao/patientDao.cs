@@ -14,10 +14,5 @@ namespace Modelo.dao
 		public patientDao()
 		{
 		}
-		
-		//Constructor para crear usuario con los datos
-		public void CreatePatient(Patient patient)
-		{
-		}
 	}
 }

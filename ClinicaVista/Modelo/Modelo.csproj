@@ -44,8 +44,8 @@
   <ItemGroup>
     <Compile Include="dao\patientDao.cs" />
     <Compile Include="dao\UserDao.cs" />
-    <Compile Include="Patient.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="entities\Patient.cs" />
+    <Compile Include="entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
