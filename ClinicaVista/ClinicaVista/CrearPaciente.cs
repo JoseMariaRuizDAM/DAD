@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo;
 
 namespace ClinicaVista
 {
 	public partial class CrearPaciente : Form
 	{
+		Patient patient;
 		public CrearPaciente()
 		{
 			InitializeComponent();
@@ -28,7 +30,6 @@ namespace ClinicaVista
 		private void crear_btn_crear_Click(object sender, EventArgs e)
 		{
 			//Comprobación de que todos los campos contengan información
-			//TODO tengo que comprobar el error de que aunque esten vacios los campos entra dentro del if
 			if(dni_crear.Text != null &&
 				nombre_crear.Text != null &&
 				apellidos_crear.Text != null &&
@@ -39,7 +40,19 @@ namespace ClinicaVista
 				//Comprobación de que el DNI esta correcto
 				if (dni_crear.TextLength == 9)
 				{
+					bool correcto = new Controlador.ControladorClase().comprobarDNI(dni_crear.Text);
+					
+					if(correcto == true) // si el dni esta correcto, se continuara con la creación del paciente.
+					{
+						String dni = dni_crear.Text;
+						String nombre = nombre_crear.Text;
+						String apellidos = apellidos_crear.Text;
+						String direccion = direccion_crear.Text;
+						String poblacion = poblacion_crear.Text;
+						String nhc = nhc_crear.Text;
 
+
+					}
 				}
 				else
 				{
@@ -53,9 +66,7 @@ namespace ClinicaVista
 			}
 			
 
-			String dni = dni_crear.Text;
-			String nombre = nombre_crear.Text;
-			String apellidos = apellidos_crear.Text;
+			
 
 		}
 	}
