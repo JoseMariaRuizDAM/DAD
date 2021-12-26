@@ -100,12 +100,13 @@ namespace ClinicaVista
 			// 
 			// crear_btn_crear
 			// 
-			this.crear_btn_crear.Location = new System.Drawing.Point(511, 55);
+			this.crear_btn_crear.Location = new System.Drawing.Point(511, 43);
 			this.crear_btn_crear.Name = "crear_btn_crear";
-			this.crear_btn_crear.Size = new System.Drawing.Size(144, 28);
+			this.crear_btn_crear.Size = new System.Drawing.Size(144, 40);
 			this.crear_btn_crear.TabIndex = 6;
 			this.crear_btn_crear.Text = "Crear";
 			this.crear_btn_crear.UseVisualStyleBackColor = true;
+			this.crear_btn_crear.Click += new System.EventHandler(this.crear_btn_crear_Click);
 			// 
 			// dni_crear
 			// 

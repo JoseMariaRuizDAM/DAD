@@ -21,13 +21,17 @@ namespace Controlador
          */
         public String autenticarUsuario(String nombre, String contraseña)
         {
-            
             m.Nombre = nombre;
             m.Contraseña = contraseña;
             Console.WriteLine("nombre controlador " + m.Nombre);
             String rol = udao.leerArchivo(m);
             Console.WriteLine("rol controlador " + rol);
             return rol;
+        }
+
+        public void comprobarDNI(String dni)
+        {
+
         }
     }
     
