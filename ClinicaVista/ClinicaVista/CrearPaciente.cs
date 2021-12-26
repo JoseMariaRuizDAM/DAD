@@ -7,13 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Modelo;
 
 namespace ClinicaVista
 {
 	public partial class CrearPaciente : Form
 	{
-		Patient patient;
 		public CrearPaciente()
 		{
 			InitializeComponent();

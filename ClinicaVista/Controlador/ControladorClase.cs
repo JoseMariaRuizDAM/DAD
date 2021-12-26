@@ -30,6 +30,10 @@ namespace Controlador
             return rol;
         }
 
+        public void registrarPaciente()
+        {
+        }
+        
         /*
          * Metodo para comprobar que el DNI que introduce el usuario
          * es correcto, al ser la letra correcta y el tamaño también.
@@ -45,7 +49,7 @@ namespace Controlador
                 String letra = dni.Substring(8);
                 Console.WriteLine("letra del dni " + letra);
                 int resto = Int32.Parse(numDNI) % 23;
-                if (letras[resto].Equals(letra) {
+                if (letras[resto].Equals(letra)) {
                     correcto = true;
                 }
             }
