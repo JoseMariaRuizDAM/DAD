@@ -59,9 +59,5 @@ namespace Modelo.dao
             }
             return rol;
         }
-        public String checkUser(User user)
-		{
-			return user.Nombre;
-		}
 	}
 }
