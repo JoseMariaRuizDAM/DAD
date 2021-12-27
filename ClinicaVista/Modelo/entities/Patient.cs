@@ -29,6 +29,15 @@ namespace Modelo
 		{
 		}
 
+		public String toString()
+		{
+			return dni + ";" + 
+				nombre + ";" +
+				apellidos + ";" +
+				direccion + ";" +
+				poblacion + ";" +
+				NHC + ";"; 
+		}
 		//Getters and setters
 		public string Nombre { get => nombre; set => nombre = value; }
 		public string Apellidos { get => apellidos; set => apellidos = value; }
@@ -36,5 +45,7 @@ namespace Modelo
 		public string Poblacion { get => poblacion; set => poblacion = value; }
 		public string NHC1 { get => NHC; set => NHC = value; }
 		public string Dni { get => dni; set => dni = value; }
+
+
 	}
 }

@@ -39,17 +39,15 @@ namespace ClinicaVista
 				if (dni_crear.TextLength == 9)
 				{
 					bool correcto = new Controlador.ControladorClase().comprobarDNI(dni_crear.Text);
-					
-					if(correcto == true) // si el dni esta correcto, se continuara con la creación del paciente.
+					if (correcto == true) // si el dni esta correcto, se continuara con la creación del paciente.
 					{
-						String dni = dni_crear.Text;
-						String nombre = nombre_crear.Text;
-						String apellidos = apellidos_crear.Text;
-						String direccion = direccion_crear.Text;
-						String poblacion = poblacion_crear.Text;
-						String nhc = nhc_crear.Text;
-
-
+						new Controlador.ControladorClase().registrarPaciente(dni_crear.Text,
+							nombre_crear.Text,
+							apellidos_crear.Text,
+							direccion_crear.Text,
+							poblacion_crear.Text,
+							nhc_crear.Text);
+						MessageBox.Show("Se ha creado el paciente correctamente");
 					}
 				}
 				else
@@ -62,10 +60,6 @@ namespace ClinicaVista
 			{
 				MessageBox.Show("Tienes que rellenar todos los campos", "Alerta");
 			}
-			
-
-			
-
 		}
 	}
 }

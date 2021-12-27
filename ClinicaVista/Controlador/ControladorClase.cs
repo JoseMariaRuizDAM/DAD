@@ -12,6 +12,7 @@ namespace Controlador
 
         Modelo.User m = new Modelo.User();
         Modelo.dao.UserDao udao = new Modelo.dao.UserDao();
+        Modelo.dao.patientDao pdao = new Modelo.dao.patientDao();
         
         /**
          * Este metodo que usa @nombre y @contraseña
@@ -24,14 +25,22 @@ namespace Controlador
         {
             m.Nombre = nombre;
             m.Contraseña = contraseña;
-            Console.WriteLine("nombre controlador " + m.Nombre);
             String rol = udao.leerArchivo(m);
-            Console.WriteLine("rol controlador " + rol);
             return rol;
         }
 
-        public void registrarPaciente()
+        /**
+         * Metodo para registrar un paciente con los datos que se le pasan desde la vista
+         * Se pasan los datos al dao de paciente
+         */
+        public void registrarPaciente(String DNI, String nombre, String apellidos, String direccion, String poblacion, String nhc)
         {
+            try{
+                pdao.crearPaciente(DNI, nombre, apellidos, direccion, poblacion, nhc);
+            }catch(Exception e)
+            {
+                MessageBox.Show("Error al crear el paciente");
+            }
         }
         
         /*
@@ -44,12 +53,12 @@ namespace Controlador
             try
             {
                 
-                char[] letras = {'T', 'R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+                char[] letras = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
                 String numDNI = dni.Substring(0, 8);
-                String letra = dni.Substring(8);
-                Console.WriteLine("letra del dni " + letra);
+                String letra = dni.Substring(8).ToUpper();
                 int resto = Int32.Parse(numDNI) % 23;
-                if (letras[resto].Equals(letra)) {
+                String letraResto = letras[resto].ToString();
+                if (letraResto.Equals(letra)) {
                     correcto = true;
                 }
             }
