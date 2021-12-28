@@ -48,9 +48,17 @@ namespace ClinicaVista
 							direccion_crear.Text,
 							poblacion_crear.Text,
 							nhc_crear.Text);
-						if(creado)
+						//condicional para comprobar que se ha creado el paciente. Se limpian los datos y se cierra la ventana.
+						if(creado) 
 						{
 							MessageBox.Show("Se ha creado el paciente correctamente");
+							this.Hide();
+							dni_crear.Clear();
+							apellidos_crear.Clear();
+							nombre_crear.Clear();
+							direccion_crear.Clear();
+							poblacion_crear.Clear();
+							nhc_crear.Clear();
 						}
 					}
 				}

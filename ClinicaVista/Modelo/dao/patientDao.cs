@@ -5,14 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo.Utilities;
 
 namespace Modelo.dao
 {
 	//Dao de pacientes
 	public class patientDao
 	{
-		String archivo = "patients.txt";
-		Patient patient;
+		//String archivo = "patients.txt";
+		Patient patient = new Patient();
+		FileManager fileManager = new FileManager("patients.txt");
 		//Constructor sin datos por default
 		public patientDao()
 		{
@@ -24,15 +26,24 @@ namespace Modelo.dao
 		public bool crearPaciente(String dni, String nombre, String apellidos, String direccion, String poblacion, String nhc)
 		{
 			bool creado = false;
-			//patient = new Patient();
-			//Comienzo a escribir el paciente en el archivo
-			try
+
+			try //Comienzo a escribir el paciente en el archivo
 			{
-				//FileStream pacientesArch = new FileStream(archivo, FileMode.Append, FileAccess.ReadWrite);
+				patient.Dni = dni;
+				patient.Nombre = nombre;
+				patient.Apellidos = apellidos;
+				patient.Direccion = direccion;
+				patient.Poblacion = poblacion;
+				patient.NHC1 = nhc;
+
+				fileManager.escribirConSaltoLinea(patient.toString());
+				
+				/*
 				StreamWriter sw = new StreamWriter(archivo, append: true);
-				sw.WriteLine(dni + ";" + nombre + ";" + apellidos + ";" + direccion + ";" + poblacion + ";" + nhc);
+				sw.WriteLine(patient.toString());
 				sw.Flush();
 				sw.Close();
+				*/
 				creado = true;
 			}
 			catch(Exception e){
