@@ -33,8 +33,7 @@ namespace ClinicaVista
             String contraseña = textContraseña.Text;
 
             String autenticarRol = new Controlador.ControladorClase().autenticarUsuario(usuario, contraseña);
-            Console.WriteLine(autenticarRol);
-            
+
             getSessionRol(autenticarRol);
             
         }
@@ -62,9 +61,11 @@ namespace ClinicaVista
                     break;
                 case "administrativo":
                     administrativo.Show(); // abre el formulario AdministrativoPantalla
+                    this.Hide();
                     break;
                 case "personalsanitario":
                     sanitario.Show(); // abre el formulario PersonalSanitario
+                    this.Hide();
                     break;
                 default:
                     MessageBox.Show("No has añadido un usuario correcto", "Aviso");

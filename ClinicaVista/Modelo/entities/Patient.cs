@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-	class Patient
+	public class Patient
 	{
 		String dni;
 		String nombre;

@@ -23,17 +23,15 @@ namespace Modelo.dao
 		 */
 		public void crearPaciente(String dni, String nombre, String apellidos, String direccion, String poblacion, String nhc)
 		{
-			Console.WriteLine("Entro en crearpaciente");
-			patient = new Patient(dni, nombre, apellidos, direccion, poblacion, nhc);
+			patient = new Patient();
 			//Comienzo a escribir el paciente en el archivo
 			try
 			{
-				FileStream pacientesArch = new FileStream(archivo, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+				FileStream pacientesArch = new FileStream(archivo, FileMode.Append, FileAccess.ReadWrite);
 				StreamWriter sw = new StreamWriter(pacientesArch);
 				sw.WriteLine(dni + ";" + nombre + ";" + apellidos + ";" + direccion + ";" + poblacion + ";" + nhc);
 				sw.Close();
 				pacientesArch.Close();
-				Console.WriteLine("se escribio el paciente");
 			}
 			catch(Exception e){
 				MessageBox.Show("No se ha podido crear el paciente");
