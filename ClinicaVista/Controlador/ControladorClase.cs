@@ -33,14 +33,16 @@ namespace Controlador
          * Metodo para registrar un paciente con los datos que se le pasan desde la vista
          * Se pasan los datos al dao de paciente
          */
-        public void registrarPaciente(String DNI, String nombre, String apellidos, String direccion, String poblacion, String nhc)
+        public bool registrarPaciente(String DNI, String nombre, String apellidos, String direccion, String poblacion, String nhc)
         {
+            bool creado = false;
             try{
-                pdao.crearPaciente(DNI, nombre, apellidos, direccion, poblacion, nhc);
+                creado = pdao.crearPaciente(DNI, nombre, apellidos, direccion, poblacion, nhc);
             }catch(Exception e)
             {
                 MessageBox.Show("Error al crear el paciente");
             }
+            return creado;
         }
         
         /*

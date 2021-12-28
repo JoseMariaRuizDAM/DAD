@@ -31,12 +31,12 @@ namespace Modelo
 
 		public String toString()
 		{
-			return dni + ";" + 
-				nombre + ";" +
-				apellidos + ";" +
-				direccion + ";" +
-				poblacion + ";" +
-				NHC + ";"; 
+			return this.dni + ";" + 
+				this.nombre + ";" +
+				this.apellidos + ";" +
+				this.direccion + ";" +
+				this.poblacion + ";" +
+				this.NHC + ";"; 
 		}
 		//Getters and setters
 		public string Nombre { get => nombre; set => nombre = value; }

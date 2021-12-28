@@ -38,16 +38,20 @@ namespace ClinicaVista
 				//Comprobación de que el DNI esta correcto
 				if (dni_crear.TextLength == 9)
 				{
+					bool creado = false;
 					bool correcto = new Controlador.ControladorClase().comprobarDNI(dni_crear.Text);
 					if (correcto == true) // si el dni esta correcto, se continuara con la creación del paciente.
 					{
-						new Controlador.ControladorClase().registrarPaciente(dni_crear.Text,
+						creado = new Controlador.ControladorClase().registrarPaciente(dni_crear.Text,
 							nombre_crear.Text,
 							apellidos_crear.Text,
 							direccion_crear.Text,
 							poblacion_crear.Text,
 							nhc_crear.Text);
-						MessageBox.Show("Se ha creado el paciente correctamente");
+						if(creado)
+						{
+							MessageBox.Show("Se ha creado el paciente correctamente");
+						}
 					}
 				}
 				else
@@ -55,7 +59,6 @@ namespace ClinicaVista
 					MessageBox.Show("El DNI es incorrecto: Longitud incorrecta");
 				}
 			}
-
 			else
 			{
 				MessageBox.Show("Tienes que rellenar todos los campos", "Alerta");

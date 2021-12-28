@@ -21,21 +21,24 @@ namespace Modelo.dao
 		/**
 		 * Metodo para la creación de un paciente en el archivo patients.txt
 		 */
-		public void crearPaciente(String dni, String nombre, String apellidos, String direccion, String poblacion, String nhc)
+		public bool crearPaciente(String dni, String nombre, String apellidos, String direccion, String poblacion, String nhc)
 		{
-			patient = new Patient();
+			bool creado = false;
+			//patient = new Patient();
 			//Comienzo a escribir el paciente en el archivo
 			try
 			{
-				FileStream pacientesArch = new FileStream(archivo, FileMode.Append, FileAccess.ReadWrite);
-				StreamWriter sw = new StreamWriter(pacientesArch);
+				//FileStream pacientesArch = new FileStream(archivo, FileMode.Append, FileAccess.ReadWrite);
+				StreamWriter sw = new StreamWriter(archivo, append: true);
 				sw.WriteLine(dni + ";" + nombre + ";" + apellidos + ";" + direccion + ";" + poblacion + ";" + nhc);
+				sw.Flush();
 				sw.Close();
-				pacientesArch.Close();
+				creado = true;
 			}
 			catch(Exception e){
 				MessageBox.Show("No se ha podido crear el paciente");
 			}
+			return creado;
 		}
 	}
 }
