@@ -12,7 +12,6 @@ namespace Modelo.dao
 	//Dao de pacientes
 	public class patientDao
 	{
-		//String archivo = "patients.txt";
 		Patient patient = new Patient();
 		FileManager fileManager = new FileManager("patients.txt");
 		//Constructor sin datos por default
@@ -23,7 +22,12 @@ namespace Modelo.dao
 		/**
 		 * Metodo para la creación de un paciente en el archivo patients.txt
 		 */
-		public bool crearPaciente(String dni, String nombre, String apellidos, String direccion, String poblacion, String nhc)
+		public bool crearPaciente(String dni, 
+			String nombre, 
+			String apellidos, 
+			String direccion, 
+			String poblacion, 
+			String nhc)
 		{
 			bool creado = false;
 
@@ -35,18 +39,17 @@ namespace Modelo.dao
 				patient.Direccion = direccion;
 				patient.Poblacion = poblacion;
 				patient.NHC1 = nhc;
-
-				fileManager.escribirConSaltoLinea(patient.toString());
 				
-				/*
-				StreamWriter sw = new StreamWriter(archivo, append: true);
-				sw.WriteLine(patient.toString());
-				sw.Flush();
-				sw.Close();
-				*/
-				creado = true;
+				if(!fileManager.findByString(patient.Dni)) //Comprueba que el DNI introducido no esta en el archivo 
+				{
+					creado = fileManager.escribirConSaltoLinea(patient.toString());
+				}
+				else
+				{
+					MessageBox.Show("El DNI que has introducido, ya esta en la base de datos");
+				}
 			}
-			catch(Exception e){
+			catch (Exception e){
 				MessageBox.Show("No se ha podido crear el paciente");
 			}
 			return creado;

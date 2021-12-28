@@ -15,6 +15,7 @@ namespace Modelo.Utilities
 		public FileManager()
 		{
 		}
+
 		/**
 		 * Constructor en el que se le pasa la ruta del archivo
 		 */
@@ -40,6 +41,34 @@ namespace Modelo.Utilities
 			{
 				return false;
 			}
+		}
+
+		/**
+		 * Metodo para leer un archivo completo
+		 */
+		public void leerArchivo()
+		{
+			StreamReader reader = new StreamReader(file);
+			String line;
+			while((line = reader.ReadLine()) != null)
+			{
+				Console.WriteLine(line);
+			}
+		}
+
+		public bool findByString(String palabra)
+		{
+			bool bandera = false;
+			StreamReader reader = new StreamReader(file);
+			String line;
+			while ((line = reader.ReadLine()) != null)
+			{
+				if(line.Contains(palabra))
+				{
+					bandera = true;
+				}
+			}
+			return bandera;
 		}
 	}
 }
