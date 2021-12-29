@@ -29,7 +29,7 @@ namespace Modelo
         {
             
             //Unable to connect database.
-            List<string> nombres = null;
+            List<string> nombres = new List<string>();
             string sql = "SELECT * FROM " + CategoryEntry.TABLE; //sentencia SQL para recoger toda la información de la tabla categoria
             try
             {

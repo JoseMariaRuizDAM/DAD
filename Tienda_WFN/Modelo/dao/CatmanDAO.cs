@@ -9,7 +9,9 @@ using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
-
+    /**
+     * 
+     */
     public class CatmanDAO
     {
         private static DBConnection dataSource;
@@ -22,7 +24,6 @@ namespace Modelo
         /**
          * Función que devuelve un DataTable con toda la información que está dentro de la tabla "catman"
          */
-
         public DataTable tablaGrid()
         {
             string sql = "SELECT * FROM " + CatmanEntry.TABLE;
