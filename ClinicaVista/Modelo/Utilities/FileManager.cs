@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Modelo.Utilities
 {
@@ -39,6 +40,7 @@ namespace Modelo.Utilities
 				return true;
 			}catch(Exception e)
 			{
+				MessageBox.Show("Ha habido un error al crear el paciente");
 				return false;
 			}
 		}
@@ -68,6 +70,7 @@ namespace Modelo.Utilities
 					bandera = true;
 				}
 			}
+			reader.Close();
 			return bandera;
 		}
 	}

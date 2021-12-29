@@ -29,6 +29,10 @@ namespace Modelo
 		{
 		}
 
+		/*
+		 * Metodo creado para generar una linea de texto
+		 * con todos los datos del paciente y que se devuelva
+		 */
 		public String toString()
 		{
 			return this.dni + ";" + 
@@ -45,7 +49,5 @@ namespace Modelo
 		public string Poblacion { get => poblacion; set => poblacion = value; }
 		public string NHC1 { get => NHC; set => NHC = value; }
 		public string Dni { get => dni; set => dni = value; }
-
-
 	}
 }
