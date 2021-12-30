@@ -50,7 +50,8 @@ namespace Modelo
 
                 using (mysqlCmd = new MySqlCommand(sql, connection))
                 {
-                    mysqlCmd.Parameters.AddWithValue("@name", id);
+                    // Metodos para añadir en los parametros @name y @contra los valores @id y @pass 
+                    mysqlCmd.Parameters.AddWithValue("@name", id); 
                     mysqlCmd.Parameters.AddWithValue("@contra", pass);
                 }
                 mysqlReader = mysqlCmd.ExecuteReader(); //Executes query and get result.

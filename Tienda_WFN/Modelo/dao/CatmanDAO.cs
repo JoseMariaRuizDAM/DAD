@@ -10,7 +10,9 @@ using MySql.Data.MySqlClient;
 namespace Modelo
 {
     /**
-     * 
+     * Clase Category Man DAO en la que se usa para acceder a los datos
+     * de la base de datos de la clase catman
+     * Se usan los diferentes metodos para utilizar los datos
      */
     public class CatmanDAO
     {
@@ -22,7 +24,8 @@ namespace Modelo
         DataTable dataTable = null;
 
         /**
-         * Función que devuelve un DataTable con toda la información que está dentro de la tabla "catman"
+         * Función que devuelve un DataTable con toda la información 
+         * que está dentro de la tabla "catman"
          */
         public DataTable tablaGrid()
         {
@@ -36,7 +39,7 @@ namespace Modelo
                 dataTable = new DataTable();
                 adapter = new MySqlDataAdapter(mysqlCmd);
 
-                adapter.Fill(dataTable);
+                adapter.Fill(dataTable); // con el adaptador se rellena el datatable
                 
 
             }catch(Exception e) {
@@ -51,6 +54,10 @@ namespace Modelo
             return dataTable;
         }
 
+        /**
+        *Metodo que devuelve una lista de String con todas las categorias 
+        *dentro de la tabla CatMan
+        */
         public List<String> listAllCategories()
         {
             String sql = "SELECT " + CatmanEntry.CATEGORY + " FROM " + CategoryEntry.TABLE;
