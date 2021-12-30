@@ -37,10 +37,22 @@ namespace Tienda_WFN
                 btn.Size = new Size(125, 54);
                 btn.ForeColor = Color.White;
                 btn.Text = categorias[i];
+                String nombre = categorias[i];
                 this.Controls.Add(btn);
+                if (nombre.Equals("man"))
+                {
+                    btn.Click += ClickBoton;
+                }
             }
-
-
+        }
+        /**
+         * Función que abre un nuevo formulario de dialogo cuando se hace click en el botón
+         * para ser más exactos el de category Man o CatMan
+         */
+        private void ClickBoton(object sender, EventArgs e)
+        {
+            
+            new Man_Category().Visible = true;
         }
     }
 }

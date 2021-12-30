@@ -12,6 +12,7 @@ namespace Controlador
     {
         CatmanDAO catmanDao = new CatmanDAO();
 
+        //Constructor por defecto
         public ControladorCatman()
         {
 
@@ -26,6 +27,10 @@ namespace Controlador
             return catmanDao.tablaGrid();
         }
 
+        /**
+         * Función que devuelve un DataTable para poder mostrarlo en la vista
+         * Los datos serán recogidos en la base de datos y se usan los de la tabla catman
+         */
         public List<String> listaCategorias()
         {
             return catmanDao.listAllCategories();

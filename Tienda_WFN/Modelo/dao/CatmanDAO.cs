@@ -72,6 +72,7 @@ namespace Modelo
 
                 mysqlReader = mysqlCmd.ExecuteReader();
 
+                //condicional que añade las categorias de CatMan en la lista @categorias
                 while (mysqlReader.Read())
                 {
                     string categoria = mysqlReader[CatmanEntry.CATEGORY].ToString();
