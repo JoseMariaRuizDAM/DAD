@@ -41,6 +41,7 @@ namespace Tienda_WFN
          */
         private void filter_btn_Click(object sender, EventArgs e)
         {
+            /*
             if (listBox1.SelectedItem != null)
             {
                 string selectCategoria = listBox1.SelectedItem.ToString();
@@ -50,12 +51,17 @@ namespace Tienda_WFN
             {
                 MessageBox.Show("No has seleccionado ninguna categoria");
             }
-            
+            */
         }
 
         private void Add_btn_Click(object sender, EventArgs e)
         {
             addItem.Show();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

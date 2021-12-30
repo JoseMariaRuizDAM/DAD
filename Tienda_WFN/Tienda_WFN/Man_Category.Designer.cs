@@ -32,12 +32,16 @@ namespace Tienda_WFN
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Jeans");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Shirt");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("T-Shirt");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("All");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Man_Category));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.filter_btn = new System.Windows.Forms.Button();
             this.Add_btn = new System.Windows.Forms.Button();
             this.view_btn = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,23 +77,14 @@ namespace Tienda_WFN
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(933, 261);
+            this.dataGridView1.Size = new System.Drawing.Size(955, 261);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(34, 317);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
-            this.listBox1.TabIndex = 1;
             // 
             // filter_btn
             // 
             this.filter_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.filter_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.filter_btn.Location = new System.Drawing.Point(191, 317);
+            this.filter_btn.Location = new System.Drawing.Point(101, 462);
             this.filter_btn.Name = "filter_btn";
             this.filter_btn.Size = new System.Drawing.Size(110, 32);
             this.filter_btn.TabIndex = 2;
@@ -120,16 +115,31 @@ namespace Tienda_WFN
             this.view_btn.Text = "View";
             this.view_btn.UseVisualStyleBackColor = false;
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
+            this.listView1.Location = new System.Drawing.Point(101, 317);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(179, 116);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
             // Man_Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1013, 450);
+            this.ClientSize = new System.Drawing.Size(1052, 523);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.view_btn);
             this.Controls.Add(this.Add_btn);
             this.Controls.Add(this.filter_btn);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Man_Category";
             this.Text = "Category: MAN";
@@ -141,9 +151,9 @@ namespace Tienda_WFN
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button filter_btn;
         private System.Windows.Forms.Button Add_btn;
         private System.Windows.Forms.Button view_btn;
+        private System.Windows.Forms.ListView listView1;
     }
 }
