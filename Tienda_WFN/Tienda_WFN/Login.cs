@@ -56,6 +56,7 @@ namespace Tienda_WFN
                     categorias.Show();
                     user_box.Clear();
                     password_box.Clear();
+                    this.Hide();
                 }
                 /**
                  * En caso de que el usuario no este registrado en la base de dato se le lanza un mensaje de bienvenida

@@ -24,13 +24,15 @@ namespace Tienda_WFN
         public Man_Category()
         {
             InitializeComponent();
-            
+            Man_Category_Load();
         }
         
-        public void Man_Category_Load(object sender, EventArgs e)
+        public void Man_Category_Load()
         {
-            controlador.tablaCatman(); // metodo de llamada para recoger los datos de la base de datos al datagridview
-            listBox1.DataSource = controlador.listaCategorias(); // con este metodo estoy añadiendo la lista en el listBox.
+            dataGridView1.DataSource = controlador.tablaCatman();
+            dataGridView1.Update();
+            //controlador.tablaCatman(); // metodo de llamada para recoger los datos de la base de datos al datagridview
+            //listBox1.DataSource = controlador.listaCategorias(); // con este metodo estoy añadiendo la lista en el listBox.
         }
 
         /**

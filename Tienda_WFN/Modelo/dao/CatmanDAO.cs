@@ -23,13 +23,17 @@ namespace Modelo
         MySqlDataAdapter adapter = null;
         DataTable dataTable = null;
 
+        public CatmanDAO()
+        {
+            dataSource = DBConnection.getInstance();
+        }
         /**
          * Función que devuelve un DataTable con toda la información 
          * que está dentro de la tabla "catman"
          */
         public DataTable tablaGrid()
         {
-            string sql = "SELECT * FROM " + CatmanEntry.TABLE;
+            string sql = "SELECT * FROM " + CatmanEntry.TABLE + ";";
             try
             {
                 connection = dataSource.getConnection(); // Establecer la conexión con la base de datos

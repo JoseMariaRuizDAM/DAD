@@ -60,7 +60,7 @@ namespace Tienda_WFN
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 48);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -73,14 +73,14 @@ namespace Tienda_WFN
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(526, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(933, 261);
             this.dataGridView1.TabIndex = 0;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(34, 265);
+            this.listBox1.Location = new System.Drawing.Point(34, 317);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 84);
             this.listBox1.TabIndex = 1;
@@ -89,7 +89,7 @@ namespace Tienda_WFN
             // 
             this.filter_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.filter_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.filter_btn.Location = new System.Drawing.Point(192, 265);
+            this.filter_btn.Location = new System.Drawing.Point(191, 317);
             this.filter_btn.Name = "filter_btn";
             this.filter_btn.Size = new System.Drawing.Size(110, 32);
             this.filter_btn.TabIndex = 2;
@@ -101,7 +101,7 @@ namespace Tienda_WFN
             // 
             this.Add_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Add_btn.Location = new System.Drawing.Point(448, 265);
+            this.Add_btn.Location = new System.Drawing.Point(435, 317);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(112, 32);
             this.Add_btn.TabIndex = 3;
@@ -113,7 +113,7 @@ namespace Tienda_WFN
             // 
             this.view_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.view_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.view_btn.Location = new System.Drawing.Point(448, 317);
+            this.view_btn.Location = new System.Drawing.Point(435, 369);
             this.view_btn.Name = "view_btn";
             this.view_btn.Size = new System.Drawing.Size(112, 32);
             this.view_btn.TabIndex = 4;
@@ -125,7 +125,7 @@ namespace Tienda_WFN
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1013, 450);
             this.Controls.Add(this.view_btn);
             this.Controls.Add(this.Add_btn);
             this.Controls.Add(this.filter_btn);
