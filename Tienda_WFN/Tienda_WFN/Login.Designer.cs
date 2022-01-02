@@ -66,6 +66,7 @@ namespace Tienda_WFN
             // 
             this.password_box.Location = new System.Drawing.Point(346, 143);
             this.password_box.Name = "password_box";
+            this.password_box.PasswordChar = '*';
             this.password_box.Size = new System.Drawing.Size(100, 26);
             this.password_box.TabIndex = 3;
             // 
