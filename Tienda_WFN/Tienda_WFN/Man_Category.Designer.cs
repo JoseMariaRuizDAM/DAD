@@ -84,9 +84,9 @@ namespace Tienda_WFN
             // 
             this.filter_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.filter_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.filter_btn.Location = new System.Drawing.Point(101, 462);
+            this.filter_btn.Location = new System.Drawing.Point(226, 378);
             this.filter_btn.Name = "filter_btn";
-            this.filter_btn.Size = new System.Drawing.Size(110, 32);
+            this.filter_btn.Size = new System.Drawing.Size(110, 37);
             this.filter_btn.TabIndex = 2;
             this.filter_btn.Text = "Filter";
             this.filter_btn.UseVisualStyleBackColor = false;
@@ -96,9 +96,9 @@ namespace Tienda_WFN
             // 
             this.Add_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Add_btn.Location = new System.Drawing.Point(435, 317);
+            this.Add_btn.Location = new System.Drawing.Point(547, 329);
             this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(112, 32);
+            this.Add_btn.Size = new System.Drawing.Size(112, 40);
             this.Add_btn.TabIndex = 3;
             this.Add_btn.Text = "Add";
             this.Add_btn.UseVisualStyleBackColor = false;
@@ -108,9 +108,9 @@ namespace Tienda_WFN
             // 
             this.view_btn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.view_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.view_btn.Location = new System.Drawing.Point(435, 369);
+            this.view_btn.Location = new System.Drawing.Point(681, 329);
             this.view_btn.Name = "view_btn";
-            this.view_btn.Size = new System.Drawing.Size(112, 32);
+            this.view_btn.Size = new System.Drawing.Size(112, 40);
             this.view_btn.TabIndex = 4;
             this.view_btn.Text = "View";
             this.view_btn.UseVisualStyleBackColor = false;
@@ -125,7 +125,7 @@ namespace Tienda_WFN
             listViewItem4});
             this.listView1.Location = new System.Drawing.Point(101, 317);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(179, 116);
+            this.listView1.Size = new System.Drawing.Size(380, 44);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);

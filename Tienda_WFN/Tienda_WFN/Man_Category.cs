@@ -29,10 +29,8 @@ namespace Tienda_WFN
         
         public void Man_Category_Load()
         {
-            dataGridView1.DataSource = controlador.tablaCatman();
-            dataGridView1.Update();
-            //controlador.tablaCatman(); // metodo de llamada para recoger los datos de la base de datos al datagridview
-            //listBox1.DataSource = controlador.listaCategorias(); // con este metodo estoy añadiendo la lista en el listBox.
+            dataGridView1.DataSource = controlador.tablaCatman(); // metodo de llamada para recoger los datos de la base de datos al datagridview
+            dataGridView1.Update(); // con este metodo estoy añadiendo la lista en el listBox.
         }
 
         /**
@@ -41,17 +39,17 @@ namespace Tienda_WFN
          */
         private void filter_btn_Click(object sender, EventArgs e)
         {
-            /*
-            if (listBox1.SelectedItem != null)
-            {
-                string selectCategoria = listBox1.SelectedItem.ToString();
-                dataGridView1.DataSource = dataGridView1.Columns.Contains(selectCategoria);
-            }
-            else
+            int intselectedindex = listView1.SelectedIndices[0];
+
+           if(intselectedindex < 0)
             {
                 MessageBox.Show("No has seleccionado ninguna categoria");
             }
-            */
+            if (intselectedindex >= 0)
+            {
+                String categoria = listView1.Items[intselectedindex].Text;
+                dataGridView1.DataSource = controlador.FiltrarCategoria(categoria);
+            }
         }
 
         private void Add_btn_Click(object sender, EventArgs e)

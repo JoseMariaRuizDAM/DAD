@@ -96,6 +96,54 @@ namespace Modelo
             }
 
             return categorias;
-        }        
+        }
+
+        public DataTable filtrarCategoria(string category)
+        {
+            DataTable dataTable = null;
+            MySqlConnection connection = null;
+            MySqlCommand mysqlCmd = null;
+            MySqlDataAdapter mysqlDAdapter = null;
+            string sql = "";
+
+            switch (category)
+            {
+                case "Jeans":
+                    sql = "SELECT * FROM " + CatmanEntry.TABLE + " WHERE " + CatmanEntry.CATEGORY + " LIKE 'Jeans'";
+                    break;
+                case "Shirt":
+                    sql = "SELECT * FROM " + CatmanEntry.TABLE + " WHERE " + CatmanEntry.CATEGORY +" LIKE 'Shirts'";
+                    break;
+                case "T-Shirt":
+                    sql = "SELECT * FROM " + CatmanEntry.TABLE + " WHERE " + CatmanEntry.CATEGORY + " LIKE 'T-shirts'";
+                    break;
+                case "All":
+                    sql = "SELECT * FROM " + CatmanEntry.TABLE + ";";
+                    break;
+            }
+
+            try
+            {
+                connection = dataSource.getConnection();
+                connection.Open();
+
+                mysqlCmd = new MySqlCommand(sql, connection);
+                dataTable = new DataTable();
+                mysqlDAdapter = new MySqlDataAdapter(mysqlCmd);
+                mysqlDAdapter.Fill(dataTable);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error " + e.ToString());
+            }
+            finally
+            {
+                if (mysqlCmd != null) mysqlCmd.Dispose();
+                if (mysqlDAdapter != null) mysqlDAdapter.Dispose();
+                if (connection != null) connection.Close();
+            }
+            return dataTable;
+        }
     }
 }

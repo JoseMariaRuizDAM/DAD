@@ -27,6 +27,11 @@ namespace Controlador
             return catmanDao.tablaGrid();
         }
 
+        public DataTable FiltrarCategoria(String categoria)
+        {
+            return catmanDao.filtrarCategoria(categoria);
+        }
+
         /**
          * Función que devuelve un DataTable para poder mostrarlo en la vista
          * Los datos serán recogidos en la base de datos y se usan los de la tabla catman
