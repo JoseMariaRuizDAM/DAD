@@ -46,6 +46,12 @@ namespace Controlador
         {
             return catmanDao.updateQuantity(id, quantity);
         }
+
+        public bool addBasket(String id, String name, double total)
+        {
+            Console.WriteLine("Entro en controladorCatman addbasket total " + total);
+            return catmanDao.addBasket(id, name, total);
+        }
         /**
          * Función que devuelve un DataTable para poder mostrarlo en la vista
          * Los datos serán recogidos en la base de datos y se usan los de la tabla catman

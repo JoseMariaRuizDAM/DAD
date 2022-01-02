@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo.utilities;
 using MySql.Data.MySqlClient;
 
 namespace Modelo
@@ -22,7 +23,6 @@ namespace Modelo
         MySqlDataReader mysqlReader = null;
         MySqlDataAdapter adapter = null;
         DataTable dataTable = null;
-
         public CatmanDAO()
         {
             dataSource = DBConnection.getInstance();
@@ -64,7 +64,8 @@ namespace Modelo
         */
         public List<String> listAllCategories()
         {
-            String sql = "SELECT " + CatmanEntry.CATEGORY + " FROM " + CategoryEntry.TABLE;
+            String sql = "SELECT " + CatmanEntry.CATEGORY +
+                " FROM " + CategoryEntry.TABLE;
             List<string> categorias = new List<string>();
 
             try
@@ -110,13 +111,19 @@ namespace Modelo
             switch (category)
             {
                 case "Jeans":
-                    sql = "SELECT * FROM " + CatmanEntry.TABLE + " WHERE " + CatmanEntry.CATEGORY + " LIKE 'Jeans'";
+                    sql = "SELECT * FROM " + CatmanEntry.TABLE +
+                        " WHERE " + CatmanEntry.CATEGORY + 
+                        " LIKE 'Jeans'";
                     break;
                 case "Shirt":
-                    sql = "SELECT * FROM " + CatmanEntry.TABLE + " WHERE " + CatmanEntry.CATEGORY +" LIKE 'Shirts'";
+                    sql = "SELECT * FROM " + CatmanEntry.TABLE + 
+                        " WHERE " + CatmanEntry.CATEGORY + 
+                        " LIKE 'Shirts'";
                     break;
                 case "T-Shirt":
-                    sql = "SELECT * FROM " + CatmanEntry.TABLE + " WHERE " + CatmanEntry.CATEGORY + " LIKE 'T-shirts'";
+                    sql = "SELECT * FROM " + CatmanEntry.TABLE +
+                        " WHERE " + CatmanEntry.CATEGORY +
+                        " LIKE 'T-shirts'";
                     break;
                 case "All":
                     sql = "SELECT * FROM " + CatmanEntry.TABLE + ";";
@@ -184,7 +191,34 @@ namespace Modelo
         public bool addBasket(String id, String name, double total)
         {
             bool add = false;
+            String sql = "INSERT INTO " + BasketEntry.TABLE +
+                " (" + BasketEntry.ID +
+                "," + BasketEntry.NAME +
+                "," + BasketEntry.TOTAL + ")" +
+                " VALUES ('" + id + 
+                "','" + name +
+                "','" + total + "')";
+            Console.WriteLine("prueba");
+            try
+            {
+                connection = dataSource.getConnection();
+                connection.Open();
 
+                mysqlCmd = new MySqlCommand(sql, connection);
+                mysqlCmd.ExecuteNonQuery();
+                add = true;
+                Console.WriteLine("entro en catmanDao addBasket");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error " + e.ToString());
+            }
+            finally
+            {
+                if (mysqlCmd != null) mysqlCmd.Dispose();
+                if (adapter != null) adapter.Dispose();
+                if (connection != null) connection.Close();
+            }
             return add;
         }
     }

@@ -17,6 +17,7 @@ namespace Tienda_WFN
         private String id;
         private String name;
         private String quantity;
+        private double price;
 
         /**
          * Constructor en el que se le pasa el @id del producto
@@ -25,11 +26,12 @@ namespace Tienda_WFN
          * Muestra la información del producto, su ID como la cantidad
          * que hay en stock
          */
-        public AddItem(String id, String name, String quantity)
+        public AddItem(String id, String name, double price, String quantity)
         {
             this.id = id;
             this.name = name;
             this.quantity = quantity;
+            this.price = price;
             InitializeComponent();
             id_label.Text = id;
             name_label.Text = name;
@@ -53,17 +55,25 @@ namespace Tienda_WFN
         }
         /**
          * Función que se activa cuando se hace click en el botón "add basquet"
-         * Recoge la @cantidad (@quantity_add_box) que añade el cliente 
+         * Recoge la @cantidad (@quantity_add_box) que añade el cliente
+         * Se añade el producto con @id, @name, @total en la tabla basket
          * La cantidad debera de ser mayor que el stock que hay en la base de datos
          */
         private void add_basquet_btn_Click(object sender, EventArgs e)
         {
+            bool add = false;
             int cantidad = int.Parse(quantity_add_box.Text);
+            double precio = cantidad * this.price; 
             Controlador.ControladorCatman controladorCatman = new Controlador.ControladorCatman();
             int restoStock = int.Parse(this.quantity) - cantidad; //Se le resta la cantidad que ha comprado el usuario a la cantidad de stock
             if (restoStock > 0) // en caso de que la cantidad que añade el usuario es mayor que 0 se actualiza la base de datos
             {
-                DataTable tabla = controladorCatman.updateQuantity(this.id, restoStock);   
+                DataTable tabla = controladorCatman.updateQuantity(this.id, restoStock);
+                add = controladorCatman.addBasket(this.id, this.name,  precio);
+                if (add)
+                {
+                    Console.WriteLine("Se ha añadido correctamente el producto en Basket");
+                }
             }
             else
             {

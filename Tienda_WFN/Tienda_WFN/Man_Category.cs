@@ -61,8 +61,9 @@ namespace Tienda_WFN
             {
                 string id = dataGridView1.Rows[index].Cells[0].Value.ToString();
                 string name = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                double price = Double.Parse(dataGridView1.Rows[index].Cells[4].Value.ToString());
                 string quantity = dataGridView1.Rows[index].Cells[5].Value.ToString();
-                new AddItem(id, name, quantity).Visible = true;
+                new AddItem(id, name, price, quantity).Visible = true;
                 this.Close();
                 /*dataGridView1.DataSource = controlador.updateQuantity(id, int.Parse(quantity));
                 dataGridView1.Update();*/
