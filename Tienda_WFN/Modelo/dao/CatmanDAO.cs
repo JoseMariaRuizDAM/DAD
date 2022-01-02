@@ -216,7 +216,6 @@ namespace Modelo
             finally
             {
                 if (mysqlCmd != null) mysqlCmd.Dispose();
-                if (adapter != null) adapter.Dispose();
                 if (connection != null) connection.Close();
             }
             return add;
