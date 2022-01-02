@@ -61,5 +61,23 @@ namespace Tienda_WFN
         {
 
         }
+
+        private void view_btn_Click(object sender, EventArgs e)
+        {
+            int index = dataGridView1.CurrentRow.Index;
+
+            if (index >= 0)
+            {
+                string id = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                string name = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                string category = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                string quantity = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                MessageBox.Show("ID: " + id + "\nName: " + name + "\nCategory: " + category + "\nQuantity: " + quantity);
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado una fila", "Aviso");
+            }
+        }
     }
 }

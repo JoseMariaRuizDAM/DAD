@@ -114,6 +114,7 @@ namespace Tienda_WFN
             this.view_btn.TabIndex = 4;
             this.view_btn.Text = "View";
             this.view_btn.UseVisualStyleBackColor = false;
+            this.view_btn.Click += new System.EventHandler(this.view_btn_Click);
             // 
             // listView1
             // 
