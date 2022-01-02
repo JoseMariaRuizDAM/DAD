@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="entities\Category.cs" />
     <Compile Include="dao\CategoryDAO.cs" />
+    <Compile Include="utilities\BasketEntry.cs" />
     <Compile Include="utilities\CategoryEntry.cs" />
     <Compile Include="entities\Catman.cs" />
     <Compile Include="dao\CatmanDAO.cs" />

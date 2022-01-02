@@ -64,7 +64,7 @@ namespace Tienda_WFN
                 string quantity = dataGridView1.Rows[index].Cells[5].Value.ToString();
                 new AddItem(id, name, quantity).Visible = true;
                 this.Close();
-                /*dataGridView1.DataSource = controlador.addBasquet(id, int.Parse(quantity));
+                /*dataGridView1.DataSource = controlador.updateQuantity(id, int.Parse(quantity));
                 dataGridView1.Update();*/
             }
             else

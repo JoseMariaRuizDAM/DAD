@@ -148,7 +148,8 @@ namespace Modelo
         }
 
         /**
-         * 
+         * Metodo que devuelve un DataTable con la base de datos actualizada
+         * Recoge un @id y una cantidad que es la que queda en la columna @quantity
          */
         public DataTable updateQuantity(String id, int newQuantity)
         {
@@ -177,10 +178,15 @@ namespace Modelo
                 if (adapter != null) adapter.Dispose();
                 if (connection != null) connection.Close();
             }
-
             return dataTable;
         }
 
+        public bool addBasket(String id, String name, double total)
+        {
+            bool add = false;
+
+            return add;
+        }
     }
     
 }

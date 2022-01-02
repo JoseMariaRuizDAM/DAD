@@ -60,10 +60,10 @@ namespace Tienda_WFN
         {
             int cantidad = int.Parse(quantity_add_box.Text);
             Controlador.ControladorCatman controladorCatman = new Controlador.ControladorCatman();
-            int restoStock = int.Parse(this.quantity) - cantidad;
+            int restoStock = int.Parse(this.quantity) - cantidad; //Se le resta la cantidad que ha comprado el usuario a la cantidad de stock
             if (restoStock > 0) // en caso de que la cantidad que añade el usuario es mayor que 0 se actualiza la base de datos
             {
-                DataTable tabla = controladorCatman.addBasquet(this.id, restoStock);   
+                DataTable tabla = controladorCatman.updateQuantity(this.id, restoStock);   
             }
             else
             {

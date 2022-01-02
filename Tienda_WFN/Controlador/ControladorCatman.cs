@@ -42,7 +42,7 @@ namespace Controlador
          * Metodo que devuelve una DataTable actualizada
          * Recoge el @id del producto y @quantity (cantidad)
          */
-        public DataTable addBasquet(String id, int quantity)
+        public DataTable updateQuantity(String id, int quantity)
         {
             return catmanDao.updateQuantity(id, quantity);
         }
