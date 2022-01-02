@@ -38,7 +38,11 @@ namespace Controlador
             return catmanDao.filtrarCategoria(categoria);
         }
 
-        public int addBasquet(String id, int quantity)
+        /**
+         * Metodo que devuelve una DataTable actualizada
+         * Recoge el @id del producto y @quantity (cantidad)
+         */
+        public DataTable addBasquet(String id, int quantity)
         {
             return catmanDao.updateQuantity(id, quantity);
         }

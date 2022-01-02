@@ -31,6 +31,7 @@ namespace Tienda_WFN
         {
             dataGridView1.DataSource = controlador.tablaCatman(); // metodo de llamada para recoger los datos de la base de datos al datagridview
             dataGridView1.Update(); // con este metodo estoy añadiendo la lista en el listBox.
+            dataGridView1.Refresh();
         }
 
         /**

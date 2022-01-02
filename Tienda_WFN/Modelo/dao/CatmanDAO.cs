@@ -98,10 +98,15 @@ namespace Modelo
             return categorias;
         }
 
+        /**
+         * Metodo que devuelve un DataTable con un filtro en las categorias
+         * Recoge un String @category que hace de filtro en la base de datos
+         */
         public DataTable filtrarCategoria(string category)
         {
             string sql = "";
 
+            //comienzo del filtro según la categoria que haya seleccionado el usuario
             switch (category)
             {
                 case "Jeans":
@@ -142,7 +147,10 @@ namespace Modelo
             return dataTable;
         }
 
-        public int updateQuantity(String id, int newQuantity)
+        /**
+         * 
+         */
+        public DataTable updateQuantity(String id, int newQuantity)
         {
             String sql = "UPDATE " + CatmanEntry.TABLE +
                 " SET " + CatmanEntry.QUANTITY + " = " + newQuantity +
@@ -155,9 +163,9 @@ namespace Modelo
                 connection.Open();
                 mysqlCmd = new MySqlCommand(sql, connection);
                 filas = mysqlCmd.ExecuteNonQuery();
-                /*
+                
                 adapter = new MySqlDataAdapter(mysqlCmd);
-                adapter.Fill(dataTable);*/
+                adapter.Fill(dataTable);
             }
             catch (Exception e)
             {
@@ -170,7 +178,7 @@ namespace Modelo
                 if (connection != null) connection.Close();
             }
 
-            return filas;
+            return dataTable;
         }
 
     }
