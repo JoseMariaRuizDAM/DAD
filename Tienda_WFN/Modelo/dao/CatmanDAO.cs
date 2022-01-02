@@ -100,10 +100,6 @@ namespace Modelo
 
         public DataTable filtrarCategoria(string category)
         {
-            DataTable dataTable = null;
-            MySqlConnection connection = null;
-            MySqlCommand mysqlCmd = null;
-            MySqlDataAdapter mysqlDAdapter = null;
             string sql = "";
 
             switch (category)
@@ -129,8 +125,8 @@ namespace Modelo
 
                 mysqlCmd = new MySqlCommand(sql, connection);
                 dataTable = new DataTable();
-                mysqlDAdapter = new MySqlDataAdapter(mysqlCmd);
-                mysqlDAdapter.Fill(dataTable);
+                adapter = new MySqlDataAdapter(mysqlCmd);
+                adapter.Fill(dataTable);
 
             }
             catch (Exception e)
@@ -140,10 +136,43 @@ namespace Modelo
             finally
             {
                 if (mysqlCmd != null) mysqlCmd.Dispose();
-                if (mysqlDAdapter != null) mysqlDAdapter.Dispose();
+                if (adapter != null) adapter.Dispose();
                 if (connection != null) connection.Close();
             }
             return dataTable;
         }
+
+        public int updateQuantity(String id, int newQuantity)
+        {
+            String sql = "UPDATE " + CatmanEntry.TABLE +
+                " SET " + CatmanEntry.QUANTITY + " = " + newQuantity +
+                " WHERE " + CatmanEntry.ID + " = " + id;
+            int filas = 0;
+
+            try
+            {
+                connection = dataSource.getConnection();
+                connection.Open();
+                mysqlCmd = new MySqlCommand(sql, connection);
+                filas = mysqlCmd.ExecuteNonQuery();
+                /*
+                adapter = new MySqlDataAdapter(mysqlCmd);
+                adapter.Fill(dataTable);*/
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error " + e.ToString());
+            }
+            finally
+            {
+                if (mysqlCmd != null) mysqlCmd.Dispose();
+                if (adapter != null) adapter.Dispose();
+                if (connection != null) connection.Close();
+            }
+
+            return filas;
+        }
+
     }
+    
 }

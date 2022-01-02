@@ -32,11 +32,12 @@ namespace Tienda_WFN
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItem));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.quantity_add_box = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.id_label = new System.Windows.Forms.Label();
             this.informacion_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
+            this.add_basquet_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -58,17 +59,17 @@ namespace Tienda_WFN
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
             // 
-            // textBox3
+            // quantity_add_box
             // 
-            this.textBox3.Location = new System.Drawing.Point(210, 267);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 26);
-            this.textBox3.TabIndex = 6;
+            this.quantity_add_box.Location = new System.Drawing.Point(214, 184);
+            this.quantity_add_box.Name = "quantity_add_box";
+            this.quantity_add_box.Size = new System.Drawing.Size(100, 26);
+            this.quantity_add_box.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(122, 270);
+            this.label3.Location = new System.Drawing.Point(122, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 7;
@@ -100,17 +101,28 @@ namespace Tienda_WFN
             this.name_label.Size = new System.Drawing.Size(0, 20);
             this.name_label.TabIndex = 10;
             // 
+            // add_basquet_btn
+            // 
+            this.add_basquet_btn.Location = new System.Drawing.Point(126, 235);
+            this.add_basquet_btn.Name = "add_basquet_btn";
+            this.add_basquet_btn.Size = new System.Drawing.Size(240, 45);
+            this.add_basquet_btn.TabIndex = 11;
+            this.add_basquet_btn.Text = "Add_Basquet";
+            this.add_basquet_btn.UseVisualStyleBackColor = true;
+            this.add_basquet_btn.Click += new System.EventHandler(this.add_basquet_btn_Click);
+            // 
             // AddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(636, 450);
+            this.Controls.Add(this.add_basquet_btn);
             this.Controls.Add(this.name_label);
             this.Controls.Add(this.informacion_label);
             this.Controls.Add(this.id_label);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.quantity_add_box);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddItem";
@@ -125,10 +137,11 @@ namespace Tienda_WFN
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox quantity_add_box;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label id_label;
         private System.Windows.Forms.Label informacion_label;
         private System.Windows.Forms.Label name_label;
+        private System.Windows.Forms.Button add_basquet_btn;
     }
 }

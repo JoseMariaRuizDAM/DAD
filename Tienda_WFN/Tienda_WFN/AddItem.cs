@@ -13,6 +13,7 @@ namespace Tienda_WFN
     public partial class AddItem : Form
     {
 
+        Man_Category man_Category = new Man_Category();
         private String id;
         private String name;
         private String quantity;
@@ -32,8 +33,8 @@ namespace Tienda_WFN
             InitializeComponent();
             id_label.Text = id;
             name_label.Text = name;
-            informacion_label.Text = "Hay en stock " + quantity + " unidades"
-                                      + "\nde este producto.";
+            informacion_label.Text = "Hay " + quantity + " en stock"
+                                      + "\nde " + name;
         }
 
         private void AddItem_Load(object sender, EventArgs e)
@@ -50,5 +51,16 @@ namespace Tienda_WFN
         {
 
         }
+
+        private void add_basquet_btn_Click(object sender, EventArgs e)
+        {
+            int cantidad = int.Parse(quantity_add_box.Text);
+            Controlador.ControladorCatman controladorCatman = new Controlador.ControladorCatman();
+            int restoStock = int.Parse(this.quantity) - cantidad; 
+            int filas = controladorCatman.addBasquet(this.id, restoStock);
+            MessageBox.Show("Numero de filas cambiadas " + filas);
+            this.Close();
+            man_Category.Show(); 
+            }
     }
 }

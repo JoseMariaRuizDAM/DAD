@@ -27,11 +27,21 @@ namespace Controlador
             return catmanDao.tablaGrid();
         }
 
+        /**
+         * Metodo que se utiliza para filtrar por la categoria
+         * que se ha seleccionado en el listview
+         * Se hace una consulta a la base de datos con @categoria
+         * y devuelve una nueva datatable con el filtro
+         */
         public DataTable FiltrarCategoria(String categoria)
         {
             return catmanDao.filtrarCategoria(categoria);
         }
 
+        public int addBasquet(String id, int quantity)
+        {
+            return catmanDao.updateQuantity(id, quantity);
+        }
         /**
          * Función que devuelve un DataTable para poder mostrarlo en la vista
          * Los datos serán recogidos en la base de datos y se usan los de la tabla catman

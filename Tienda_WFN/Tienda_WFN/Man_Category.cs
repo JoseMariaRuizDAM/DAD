@@ -61,12 +61,16 @@ namespace Tienda_WFN
                 string id = dataGridView1.Rows[index].Cells[0].Value.ToString();
                 string name = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 string quantity = dataGridView1.Rows[index].Cells[5].Value.ToString();
-                new AddItem(id, name,quantity).Visible = true;
+                new AddItem(id, name, quantity).Visible = true;
+                this.Close();
+                /*dataGridView1.DataSource = controlador.addBasquet(id, int.Parse(quantity));
+                dataGridView1.Update();*/
             }
             else
             {
                 MessageBox.Show("No se ha seleccionado una fila", "Aviso");
             }
+            //Man_Category_Load();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,6 +88,9 @@ namespace Tienda_WFN
                 string name = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 string category = dataGridView1.Rows[index].Cells[2].Value.ToString();
                 string quantity = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                /*Component1 component1 = new Component1(id);
+                component1.
+                */
                 MessageBox.Show("ID: " + id + "\nName: " + name + "\nCategory: " + category + "\nQuantity: " + quantity);
             }
             else

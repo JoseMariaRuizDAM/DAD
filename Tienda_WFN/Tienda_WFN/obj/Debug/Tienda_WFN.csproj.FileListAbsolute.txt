@@ -118,3 +118,4 @@ C:\Users\Jose\Documents\GitHub\DAD\Tienda_WFN\Tienda_WFN\obj\Debug\Tienda_WFN.cs
 C:\Users\Jose\Documents\GitHub\DAD\Tienda_WFN\Tienda_WFN\obj\Debug\Tienda_WFN.csproj.CopyComplete
 C:\Users\Jose\Documents\GitHub\DAD\Tienda_WFN\Tienda_WFN\obj\Debug\Tienda_WFN.exe
 C:\Users\Jose\Documents\GitHub\DAD\Tienda_WFN\Tienda_WFN\obj\Debug\Tienda_WFN.pdb
+C:\Users\Jose\Documents\GitHub\DAD\Tienda_WFN\Tienda_WFN\obj\Debug\Tienda_WFN.Component1.resources
