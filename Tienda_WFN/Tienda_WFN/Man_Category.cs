@@ -17,7 +17,7 @@ namespace Tienda_WFN
     public partial class Man_Category : Form
     {
         Controlador.ControladorCatman controlador = new Controlador.ControladorCatman();
-        AddItem addItem = new AddItem();
+        AddItem addItem;
         /**
          * Cuando se carga el formulario se añade la lista del datagridview
          */
@@ -54,7 +54,19 @@ namespace Tienda_WFN
 
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            addItem.Show();
+            int index = dataGridView1.CurrentRow.Index;
+
+            if (index >= 0)
+            {
+                string id = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                string name = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                string quantity = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                new AddItem(id, name,quantity).Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado una fila", "Aviso");
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

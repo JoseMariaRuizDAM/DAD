@@ -12,9 +12,43 @@ namespace Tienda_WFN
 {
     public partial class AddItem : Form
     {
-        public AddItem()
+
+        private String id;
+        private String name;
+        private String quantity;
+
+        /**
+         * Constructor en el que se le pasa el @id del producto
+         * y @quantity (cantidad) del producto seleccionado
+         * en el formulario @Man_Category.cs
+         * Muestra la información del producto, su ID como la cantidad
+         * que hay en stock
+         */
+        public AddItem(String id, String name, String quantity)
         {
+            this.id = id;
+            this.name = name;
+            this.quantity = quantity;
             InitializeComponent();
+            id_label.Text = id;
+            name_label.Text = name;
+            informacion_label.Text = "Hay en stock " + quantity + " unidades"
+                                      + "\nde este producto.";
+        }
+
+        private void AddItem_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void id_label_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
