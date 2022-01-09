@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.PrincipalFXMLController">
+   <children>
+      <TitledPane animated="false" prefHeight="586.0" prefWidth="939.0" text="Recetas">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="937.0">
+               <children>
+                  <VBox prefHeight="412.0" prefWidth="269.0">
+                     <children>
+                        <Label text="DASHBOARD">
+                           <font>
+                              <Font name="System Bold" size="31.0" />
+                           </font>
+                        </Label>
+                        <Separator prefWidth="200.0">
+                           <effect>
+                              <Shadow />
+                           </effect>
+                        </Separator>
+                        <Button fx:id="home_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="233.0" style="-fx-border-radius: 50;" text="Home" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="inNutri_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="233.0" text="Información Nutricional" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="busRecetas_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="233.0" text="Buscador Recetas" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="estadisticas_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="233.0" text="Estadisticas" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="gestionUsuarios_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="233.0" text="Gestión de Usuarios" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="ponNotas_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="233.0" text="Poner Notas" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="tableRecetas" layoutX="278.0" layoutY="95.0" prefHeight="260.0" prefWidth="634.0">
+                    <columns>
+                      <TableColumn fx:id="titleColumn" prefWidth="164.0" text="Titulo" />
+                        <TableColumn fx:id="typeColumn" prefWidth="122.0" text="Tipo" />
+                        <TableColumn fx:id="dinersColumn" prefWidth="118.0" text="Comensales" />
+                        <TableColumn fx:id="timeColumn" prefWidth="106.0" text="Tiempo" />
+                        <TableColumn fx:id="caloriesColumn" prefWidth="123.0" text="Calorias" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="589.0" layoutY="37.0" text="Buscar:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="buscar_text" layoutX="682.0" layoutY="33.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</Pane>

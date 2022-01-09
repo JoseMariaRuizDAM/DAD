@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="279.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.FXMLDocumentController">
+   <children>
+      <Button fx:id="login_btn" layoutX="190.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="224.0" text="Entrar" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <TextField fx:id="user_login" layoutX="189.0" layoutY="52.0" />
+      <Text layoutX="86.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" />
+      <Text layoutX="86.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
+      <PasswordField fx:id="password_login" layoutX="189.0" layoutY="101.0" />
+   </children>
+</AnchorPane>

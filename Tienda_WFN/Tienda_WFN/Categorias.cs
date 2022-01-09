@@ -43,15 +43,19 @@ namespace Tienda_WFN
                 {
                     btn.Click += ClickBoton;
                 }
+                else
+                {
+                    MessageBox.Show("En construcción");
+                }
             }
         }
+
         /**
          * Función que abre un nuevo formulario de dialogo cuando se hace click en el botón
          * para ser más exactos el de category Man o CatMan
          */
         private void ClickBoton(object sender, EventArgs e)
         {
-            
             new Man_Category().Visible = true;
         }
     }

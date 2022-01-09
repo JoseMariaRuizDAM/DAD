@@ -53,6 +53,11 @@ namespace Tienda_WFN
             }
         }
 
+        /**
+         * Función que se ejecuta cuando se presiona el boton add
+         * Se abre el un nuevo formulario @AddItem
+         * Recoge los datos y se los añade al constructor
+         */
         private void Add_btn_Click(object sender, EventArgs e)
         {
             int index = dataGridView1.CurrentRow.Index;
@@ -65,14 +70,11 @@ namespace Tienda_WFN
                 string quantity = dataGridView1.Rows[index].Cells[5].Value.ToString();
                 new AddItem(id, name, price, quantity).Visible = true;
                 this.Close();
-                /*dataGridView1.DataSource = controlador.updateQuantity(id, int.Parse(quantity));
-                dataGridView1.Update();*/
             }
             else
             {
                 MessageBox.Show("No se ha seleccionado una fila", "Aviso");
             }
-            //Man_Category_Load();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
