@@ -33,43 +33,159 @@ namespace Calculadora_WPF
 
             switch (fe.Name)
             {
+                //botones numeros
+                case "num0":
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "0";
+                    }
+                    else
+                    {
+                        resultado.Text += "0";
+                    }
+                    break;
                 case "num1":
-                    resultado.Text += "1";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "1";
+                    }
+                    else
+                    {
+                        resultado.Text += "1";
+                    }
                     break;
                 case "num2":
-                    resultado.Text += "2";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "2";
+                    }
+                    else
+                    {
+                        resultado.Text += "2";
+                    }
                     break;
                 case "num3":
-                    resultado.Text += "3";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "3";
+                    }
+                    else
+                    {
+                        resultado.Text += "3";
+                    }
                     break;
                 case "num4":
-                    resultado.Text += "4";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "4";
+                    }
+                    else
+                    {
+                        resultado.Text += "4";
+                    }
                     break;
                 case "num5":
-                    resultado.Text += "5";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "5";
+                    }
+                    else
+                    {
+                        resultado.Text += "5";
+                    }
                     break;
                 case "num6":
-                    resultado.Text += "6";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "6";
+                    }
+                    else
+                    {
+                        resultado.Text += "6";
+                    }
                     break;
                 case "num7":
-                    resultado.Text += "7";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "7";
+                    }
+                    else
+                    {
+                        resultado.Text += "7";
+                    }
                     break;
                 case "num8":
-                    resultado.Text += "8";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "8";
+                    }
+                    else
+                    {
+                        resultado.Text += "8";
+                    }
                     break;
                 case "num9":
-                    resultado.Text += "9";
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "9";
+                    }
+                    else
+                    {
+                        resultado.Text += "9";
+                    }
                     break;
+
+                //boton de coma
+                case "coma":
+                    if (resultado.Text.Equals("0"))
+                    {
+                        resultado.Text = "0,";
+                    }
+                    else if (resultado.Text.Equals(""))
+                    {
+                        resultado.Text = "0,";
+                    }
+                    else if (resultado.Text.Contains(","))
+                    {
+                        
+                    }
+                    else
+                    {
+                        resultado.Text += ",";
+                    }
+                    break;
+
+                //botones operadores
                 case "sumar":
-                    resultado.Text += "+";
+                    if (historial.Content.Equals(0))
+                    {
+                        historial.Content = resultado.Text;
+                    }
+                    else
+                    {
+                        historial.Content += "+" + resultado.Text;
+                    }
+                    
+                    //resultado.Text = Int32 resultado.Text"+";
                     break;
+
+                //botones de borrado
                 case "borrarTodo":
                     resultado.Text = "0";
                     break;
-                case "borraUno":
-                    resultado.Text = resultado.Text.Remove(resultado.Text.Length-1);
+                case "borrarUno":                    
+                    resultado.Text = resultado.Text.Remove(resultado.Text.Length - 1,1);
+                    break;
+
+                //boton de calculo
+                case "calcular":                    
                     break;
             }
+        }
+
+        private void botonIgual()
+        {
+
         }
     }
 }
