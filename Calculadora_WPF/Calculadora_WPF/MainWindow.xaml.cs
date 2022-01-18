@@ -20,6 +20,7 @@ namespace Calculadora_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        double aux;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace Calculadora_WPF
             {
                 //botones numeros
                 case "num0":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "0";
                     }
@@ -45,7 +46,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num1":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "1";
                     }
@@ -55,7 +56,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num2":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "2";
                     }
@@ -65,7 +66,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num3":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "3";
                     }
@@ -75,7 +76,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num4":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "4";
                     }
@@ -85,7 +86,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num5":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "5";
                     }
@@ -95,7 +96,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num6":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "6";
                     }
@@ -105,7 +106,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num7":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "7";
                     }
@@ -115,7 +116,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num8":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "8";
                     }
@@ -125,7 +126,7 @@ namespace Calculadora_WPF
                     }
                     break;
                 case "num9":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "9";
                     }
@@ -137,7 +138,7 @@ namespace Calculadora_WPF
 
                 //boton de coma
                 case "coma":
-                    if (resultado.Text.Equals("0"))
+                    if (resultado.Text.Equals("0") || aux == 0)
                     {
                         resultado.Text = "0,";
                     }
@@ -159,33 +160,109 @@ namespace Calculadora_WPF
                 case "sumar":
                     if (historial.Content.Equals(0))
                     {
+                        aux = double.Parse(resultado.Text);
                         historial.Content = resultado.Text;
+                        resultado.Text = "0";
+                    }
+                    else if (historial.Content.ToString().Contains("x"))
+                    {
+                        aux *= double.Parse(resultado.Text);
+                        historial.Content = aux + "+";
+                        resultado.Text = "0";
                     }
                     else
                     {
-                        historial.Content += "+" + resultado.Text;
+                        aux += double.Parse(resultado.Text);
+                        historial.Content = aux + "+";
+                        resultado.Text = "0";
                     }
-                    
-                    //resultado.Text = Int32 resultado.Text"+";
+                    break;
+
+                case "restar":
+                    if (historial.Content.Equals(0))
+                    {
+                        aux = double.Parse(resultado.Text);
+                        historial.Content = resultado.Text + "-";
+                        resultado.Text = "0";
+                    }
+                    else if (historial.Content.ToString().Contains("x")) 
+                    {
+                        aux *= double.Parse(resultado.Text);
+                        historial.Content = aux + "-";
+                        resultado.Text = "0";
+                    }
+                    else
+                    {
+                        aux -= double.Parse(resultado.Text);
+                        historial.Content = aux + "-";
+                        resultado.Text = "0";
+                    }
+                    break;
+
+
+                case "multi":
+                    if (historial.Content.Equals(0))
+                    {
+                        aux = double.Parse(resultado.Text);
+                        historial.Content = resultado.Text + "x";
+                        resultado.Text = "0";
+                    }
+                    else
+                    {
+                        aux *= double.Parse(resultado.Text);
+                        historial.Content = aux + "x";
+                        resultado.Text = "0";
+                    }
+                    break;
+
+                case "division":
+                    if (historial.Content.Equals(0))
+                    {
+                        aux = double.Parse(resultado.Text);
+                        historial.Content = resultado.Text + "/";
+                        resultado.Text = "0";
+                    }
+                    else
+                    {
+                        aux /= double.Parse(resultado.Text);
+                        historial.Content = aux + "/";
+                        resultado.Text = "0";
+                    }
                     break;
 
                 //botones de borrado
                 case "borrarTodo":
                     resultado.Text = "0";
+                    historial.Content = 0;
+                    aux = 0;
                     break;
                 case "borrarUno":                    
-                    resultado.Text = resultado.Text.Remove(resultado.Text.Length - 1,1);
+                    if(resultado.Text.Length > 0)
+                    {
+                        resultado.Text = resultado.Text.Remove(resultado.Text.Length - 1, 1);
+                    }
                     break;
 
                 //boton de calculo
-                case "calcular":                    
+                case "calcular":
+                    if (!resultado.Text.Equals("0"))
+                    {
+                        aux += double.Parse(resultado.Text);
+                        resultado.Text = aux.ToString();
+                        aux = 0;
+                    }
+                    else
+                    {
+                        resultado.Text = aux.ToString();
+                        aux = 0;
+                    }
                     break;
             }
         }
 
         private void botonIgual()
         {
-
+            
         }
     }
 }
