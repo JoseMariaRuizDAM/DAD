@@ -22,7 +22,10 @@ namespace Calculadora
     /// </summary>
     public partial class Page1 : Page
     {
-        
+        double aux;
+        List<Moneda> monedas = new List<Moneda>();
+        String monedaOrigen;
+        String monedaDestino;
         public Page1()
         {
             InitializeComponent();
@@ -39,6 +42,150 @@ namespace Calculadora
 
         private void Grid_Click(object sender, RoutedEventArgs e)
         {
+            FrameworkElement fe = e.Source as FrameworkElement;
+
+            switch (fe.Name)
+            {
+                //botones numeros
+                case "num0":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "0";
+                    }
+                    else
+                    {
+                        resultOri.Text += "0";
+                    }
+                    break;
+                case "num1":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "1";
+                    }
+                    else
+                    {
+                        resultOri.Text += "1";
+                    }
+                    break;
+                case "num2":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "2";
+                    }
+                    else
+                    {
+                        resultOri.Text += "2";
+                    }
+                    break;
+                case "num3":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "3";
+                    }
+                    else
+                    {
+                        resultOri.Text += "3";
+                    }
+                    break;
+                case "num4":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "4";
+                    }
+                    else
+                    {
+                        resultOri.Text += "4";
+                    }
+                    break;
+                case "num5":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "5";
+                    }
+                    else
+                    {
+                        resultOri.Text += "5";
+                    }
+                    break;
+                case "num6":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "6";
+                    }
+                    else
+                    {
+                        resultOri.Text += "6";
+                    }
+                    break;
+                case "num7":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "7";
+                    }
+                    else
+                    {
+                        resultOri.Text += "7";
+                    }
+                    break;
+                case "num8":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "8";
+                    }
+                    else
+                    {
+                        resultOri.Text += "8";
+                    }
+                    break;
+                case "num9":
+                    if (resultOri.Text.Equals("0"))
+                    {
+                        resultOri.Text = "9";
+                    }
+                    else
+                    {
+                        resultOri.Text += "9";
+                    }
+                    break;
+
+                //boton de coma
+                case "coma":
+                    if (resultOri.Text.Equals("0") || aux == 0)
+                    {
+                        resultOri.Text = "0,";
+                    }
+                    else if (resultOri.Text.Equals(""))
+                    {
+                        resultOri.Text = "0,";
+                    }
+                    else if (resultOri.Text.Contains(","))
+                    {
+
+                    }
+                    else
+                    {
+                        resultOri.Text += ",";
+                    }
+                    break;
+
+                //botones de borrado
+                case "borrarTodo":
+                    resultOri.Text = "0";
+                    resultDest.Text = "0";
+                    aux = 0;
+                    break;
+                case "borrarUno":
+                    if (resultOri.Text.Length > 0)
+                    {
+                        resultOri.Text = resultOri.Text.Remove(resultOri.Text.Length - 1, 1);
+                    }
+                    break;
+
+                case "origen":
+                    Console.WriteLine("prueba2");
+                    //calculoRate();
+                    break;
+            }
         }
 
         /**
@@ -46,7 +193,7 @@ namespace Calculadora
          * de una URL con todas las monedas y los valores
          * El metodo devuelve un @list<Moneda>
          */
-        private List<Moneda> leerXML()
+        public List<Moneda> leerXML()
         {
             List<Moneda> monedas = new List<Moneda>();
             String URL = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml";
@@ -63,10 +210,31 @@ namespace Calculadora
                     moneda.Nombre = reader.GetAttribute("currency");
                     moneda.Valor = Convert.ToDouble(reader.GetAttribute("rate"), CultureInfo.InvariantCulture);
                     monedas.Add(moneda);
-                    Console.WriteLine(moneda.Nombre);
                 }
             }
             return monedas;
+        }
+
+        public void calculoRate()
+        {
+            double cambio = 0;
+            
+            //Corregir esta parte en la que tengo que añadir la monedaOrigen si esta vacia
+            //Si esta vacio el item no se añade.
+            if (!monedaOrigen.Equals(""))
+            {
+                monedaOrigen = origen.SelectedItem.ToString();
+                monedaDestino = destino.SelectedItem.ToString();
+            }
+
+
+            //añado los nombres de las monedas dentro de los comboBox
+            foreach (Moneda nombres in monedas)
+            { 
+                Console.WriteLine(nombres.Nombre + 
+                    " valor: " + nombres.Valor);
+            }
+            //return cambio;
         }
     }
 }

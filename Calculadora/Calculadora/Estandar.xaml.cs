@@ -46,7 +46,7 @@ namespace Calculadora
                     }
                     break;
                 case "num1":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "1";
                     }
@@ -56,7 +56,7 @@ namespace Calculadora
                     }
                     break;
                 case "num2":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "2";
                     }
@@ -66,7 +66,7 @@ namespace Calculadora
                     }
                     break;
                 case "num3":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "3";
                     }
@@ -76,7 +76,7 @@ namespace Calculadora
                     }
                     break;
                 case "num4":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "4";
                     }
@@ -86,7 +86,7 @@ namespace Calculadora
                     }
                     break;
                 case "num5":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "5";
                     }
@@ -96,7 +96,7 @@ namespace Calculadora
                     }
                     break;
                 case "num6":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "6";
                     }
@@ -106,7 +106,7 @@ namespace Calculadora
                     }
                     break;
                 case "num7":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "7";
                     }
@@ -116,7 +116,7 @@ namespace Calculadora
                     }
                     break;
                 case "num8":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "8";
                     }
@@ -126,7 +126,7 @@ namespace Calculadora
                     }
                     break;
                 case "num9":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "9";
                     }
@@ -138,7 +138,7 @@ namespace Calculadora
 
                 //boton de coma
                 case "coma":
-                    if (resultado.Text.Equals("0") || aux == 0)
+                    if (resultado.Text.Equals("0"))
                     {
                         resultado.Text = "0,";
                     }

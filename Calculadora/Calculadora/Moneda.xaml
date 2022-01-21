@@ -43,6 +43,9 @@
         <Button x:Name="num8" Content="8" Grid.Column="4" Grid.Row="2" FontSize="35"  Background="White"/>
         <Button x:Name="num9" Content="9" Grid.Column="5" Grid.Row="2" FontSize="35"  Background="White"/>
 
+        <TextBlock x:Name="resultOri" TextAlignment="Left" Grid.Column="1"  Grid.Row="1" FontSize="50"/>
+        <TextBlock x:Name="resultDest" TextAlignment="Left" Grid.Column="1"  Grid.Row="4" FontSize="50"/>
+
         <ComboBox x:Name="origen" Grid.Column="1" Grid.Row="2" Background="White">
         </ComboBox>
         <ComboBox x:Name="destino" Grid.Column="1" Grid.Row="5" Background="White">
