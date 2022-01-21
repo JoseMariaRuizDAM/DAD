@@ -23,21 +23,25 @@ namespace Calculadora
     public partial class Page1 : Page
     {
         double aux;
-        List<Moneda> monedas = new List<Moneda>();
         String monedaOrigen;
         String monedaDestino;
         public Page1()
         {
             InitializeComponent();
-            //Recogo la lista con las monedas del archivo XML
+            //Recojo la lista con las monedas del archivo XML
             List<Moneda> monedas = leerXML();
+            origen.DisplayMemberPath = "Nombre";
+            destino.DisplayMemberPath = "Nombre";
             //añado los nombres de las monedas dentro de los comboBox
             foreach(Moneda nombres in monedas)
             {
-                origen.Items.Add(nombres.Nombre);
-                destino.Items.Add(nombres.Nombre);
+                origen.Items.Add(nombres);
+                destino.Items.Add(nombres);
             }
-            
+
+            //Muestro las monedas desde el inicio en los diferents combo box
+            origen.SelectedItem = monedas[0];
+            destino.SelectedItem = monedas[1];
         }
 
         private void Grid_Click(object sender, RoutedEventArgs e)
@@ -181,10 +185,14 @@ namespace Calculadora
                     }
                     break;
 
+
                 case "origen":
-                    Console.WriteLine("prueba2");
-                    //calculoRate();
+                    calculoRate();
                     break;
+                case "destino":
+                    calculoRate();
+                    break;
+
             }
         }
 
@@ -209,31 +217,43 @@ namespace Calculadora
                     Moneda moneda = new Moneda();
                     moneda.Nombre = reader.GetAttribute("currency");
                     moneda.Valor = Convert.ToDouble(reader.GetAttribute("rate"), CultureInfo.InvariantCulture);
-                    monedas.Add(moneda);
+                    if(moneda.Nombre != null)
+                    {
+                        monedas.Add(moneda);
+                    }                   
                 }
             }
             return monedas;
         }
 
+        
         public void calculoRate()
         {
             double cambio = 0;
             
             //Corregir esta parte en la que tengo que añadir la monedaOrigen si esta vacia
             //Si esta vacio el item no se añade.
-            if (!monedaOrigen.Equals(""))
+            if (origen.Text != null || destino.Text != null)
             {
-                monedaOrigen = origen.SelectedItem.ToString();
-                monedaDestino = destino.SelectedItem.ToString();
+                Console.WriteLine("pruebaentrada");
+                monedaOrigen = origen.Text;
+                monedaDestino = destino.Text;
+                //Recojo la lista con las monedas del archivo XML
+                List<Moneda> monedas = leerXML();
+                //añado los nombres de las monedas dentro de los comboBox
+                foreach (Moneda nombres in monedas)
+                {
+                    
+                    if (monedaDestino.Equals(nombres.Nombre))
+                    {
+                        Console.WriteLine("pruebaentrada3");
+                        resultDest.Text = nombres.Valor.ToString();
+                        Console.WriteLine(resultDest.Text + " probando" + nombres.Valor.ToString());
+                    }
+                }
             }
 
-
-            //añado los nombres de las monedas dentro de los comboBox
-            foreach (Moneda nombres in monedas)
-            { 
-                Console.WriteLine(nombres.Nombre + 
-                    " valor: " + nombres.Valor);
-            }
+            
             //return cambio;
         }
     }

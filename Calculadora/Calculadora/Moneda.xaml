@@ -46,9 +46,9 @@
         <TextBlock x:Name="resultOri" TextAlignment="Left" Grid.Column="1"  Grid.Row="1" FontSize="50"/>
         <TextBlock x:Name="resultDest" TextAlignment="Left" Grid.Column="1"  Grid.Row="4" FontSize="50"/>
 
-        <ComboBox x:Name="origen" Grid.Column="1" Grid.Row="2" Background="White">
+        <ComboBox x:Name="origen" Grid.Column="1" Grid.Row="2" Background="White" SelectedIndex="1" >
         </ComboBox>
-        <ComboBox x:Name="destino" Grid.Column="1" Grid.Row="5" Background="White">
+        <ComboBox x:Name="destino" Grid.Column="1" Grid.Row="5" Background="White" SelectedIndex="1">
         </ComboBox>
     </Grid>
 </Page>
