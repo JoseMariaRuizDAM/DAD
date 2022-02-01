@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 //import static sun.text.normalizer.UTF16.append;
 
 /**
@@ -55,24 +56,46 @@ public class FileManager {
     
     /**
      * Metodo para leer un archivo completo
+     * devolviendo este archivo en un ArrayList
      */		
-    public void leerArchivo() throws IOException{
+    public ArrayList<String> leerArchivo() throws IOException{
         FileReader reader = null;
         BufferedReader br = null;
+        ArrayList<String> lineas = new ArrayList<>();
         try{ 
             reader = new FileReader(file);	
             br = new BufferedReader(reader);
             String line;
-            while((line = br.readLine()) != null)
-        {
-            System.out.println(line);
-        }
+            while((line = br.readLine()) != null) {
+                lineas.add(line);
+            }
         }catch(Exception e){
             System.out.println("Ha habido un error al leer el archivo");
         }finally{
             reader.close();
             br.close();
         }
+        return lineas;
+    }
+    
+    public int contarLineas()throws IOException{
+        FileReader reader = null;
+        BufferedReader br = null;
+        int cont = 0;
+        try{ 
+            reader = new FileReader(file);	
+            br = new BufferedReader(reader);
+            String line;
+            while((line = br.readLine()) != null) {
+                cont++;
+            }
+        }catch(Exception e){
+            System.out.println("Ha habido un error al leer el archivo");
+        }finally{
+            reader.close();
+            br.close();
+        }
+        return cont;
     }
 
 

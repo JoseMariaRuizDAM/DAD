@@ -24,6 +24,15 @@ public class Usuario {
         this.password = password;
         this.rol = rol;
     }
+    /**
+     * Constructor del usuario con los datos que recibe en el login
+     * @param user
+     * @param password
+     */
+    public Usuario(String user, String password){
+        this.user = user;
+        this.password = password;
+    }
 
     //Constructor por defecto
     public Usuario() {
