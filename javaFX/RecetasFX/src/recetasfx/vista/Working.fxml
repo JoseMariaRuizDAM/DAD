@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.WorkingController">
+   <top>
+      <Label text="En Construcción" textFill="#6d8215" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/account-hard-hat.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+   </top>
+   <center>
+      <Label text="Disculpe las molestias" textFill="#b3b24a" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

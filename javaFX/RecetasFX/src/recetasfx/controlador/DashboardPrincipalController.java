@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,6 +40,18 @@ public class DashboardPrincipalController implements Initializable {
     private Button cerrarSesion;
     @FXML
     private Pane panel;
+    @FXML
+    private Button homeBoton;
+    @FXML
+    private Button InformacionBoton;
+    @FXML
+    private Button BuscadorBoton;
+    @FXML
+    private Button NotasBoton;
+    @FXML
+    private Button UsuarioBoton;
+    @FXML
+    private Button EstadisticaBoton;
     
     /**
      * Initializes the controller class.
@@ -46,7 +59,77 @@ public class DashboardPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+         try {       
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/Home.fxml"));
+            panel.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
     }   
+    
+    /**
+     * Evento onClick para ir al home
+     * @param event 
+     */
+    @FXML
+    private void HomeClick(ActionEvent event) {
+        
+        try {
+            panel.getChildren().clear();
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/Home.fxml"));
+            panel.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Evento onClick para ir al InfNutricional
+     * @param event 
+     */
+    @FXML
+    private void InfNutricionalClick(ActionEvent event) {
+        
+        try {       
+            panel.getChildren().clear();
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/Working.fxml"));
+            panel.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Evento onClick para ir al Buscador de receta
+     * @param event 
+     */
+    @FXML
+    private void BuscadorBoton(ActionEvent event) {
+         try {       
+            panel.getChildren().clear();
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/Working.fxml"));
+            panel.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    /**
+     * Evento onClick para ir al Notas
+     * @param event 
+     */
+    @FXML
+    private void NotasBoton(ActionEvent event) {
+        try {       
+            panel.getChildren().clear();
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/Working.fxml"));
+            panel.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     /**
      * Evento onClick para cerrar el stage
@@ -87,20 +170,17 @@ public class DashboardPrincipalController implements Initializable {
         stage = (Stage) this.cerrarSesion.getScene().getWindow();
         stage.close();
         try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/RecetasFX/vista/Login.fxml"));
-                        Parent root = loader.load();
-                        LoginController controller = loader.getController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RecetasFX/vista/Login.fxml"));
+            Parent root = loader.load();
+            LoginController controller = loader.getController();
 
-                        Scene scene = new Scene(root);
-                        stage = new Stage();
-                        stage.initStyle(StageStyle.UNDECORATED);
-                        stage.setScene(scene);
-                        stage.show();
-                        
-                       
-                    } catch (IOException ex) {
-                        Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-        
-    }    
+            Scene scene = new Scene(root);
+            stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }        
 }
