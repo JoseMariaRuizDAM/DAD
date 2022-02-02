@@ -12,7 +12,7 @@
    <top>
       <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="minVentana" mnemonicParsing="false" prefHeight="39.0" prefWidth="36.0" text="Button">
+            <Button fx:id="minVentana" mnemonicParsing="false" onAction="#minVentana" prefHeight="39.0" prefWidth="36.0" text="Button">
                <effect>
                   <ImageInput>
                      <source>
@@ -21,7 +21,7 @@
                   </ImageInput>
                </effect>
             </Button>
-            <Button fx:id="maxVentana" mnemonicParsing="false" prefHeight="39.0" prefWidth="41.0" text="Button">
+            <Button fx:id="maxVentana" mnemonicParsing="false" onAction="#maxVentana" prefHeight="39.0" prefWidth="41.0" text="Button">
                <effect>
                   <ImageInput>
                      <source>
@@ -30,7 +30,7 @@
                   </ImageInput>
                </effect>
             </Button>
-            <Button fx:id="cerrarVentanaBoton" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#cerrarVentanaBoton" prefHeight="39.0" prefWidth="42.0" text="Button">
+            <Button fx:id="cerrarVentanaBoton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#cerrarVentanaBoton" prefHeight="39.0" prefWidth="42.0" text="Button">
                <effect>
                   <ImageInput>
                      <source>
@@ -102,7 +102,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="39.0" prefWidth="705.0" text="Cerrar Sesion" textAlignment="CENTER">
+            <Button fx:id="cerrarSesion" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="39.0" prefWidth="705.0" text="Cerrar Sesion" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -115,6 +115,6 @@
       </VBox>
    </left>
    <center>
-      <Pane prefHeight="444.0" prefWidth="637.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="panel" prefHeight="444.0" prefWidth="637.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
