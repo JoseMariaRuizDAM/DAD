@@ -72,6 +72,7 @@ public class DashboardPrincipalController implements Initializable {
      * Evento onClick para ir al home
      * @param event 
      */
+    @FXML
     private void HomeBoton(ActionEvent event) {
         
         try {
@@ -191,8 +192,4 @@ public class DashboardPrincipalController implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }        
-
-    @FXML
-    private void HomeClick(ActionEvent event) {
-    }
 }
