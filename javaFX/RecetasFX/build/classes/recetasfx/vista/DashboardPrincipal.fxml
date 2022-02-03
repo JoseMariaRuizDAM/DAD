@@ -10,7 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.DashboardPrincipalController">
    <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="minVentana" mnemonicParsing="false" onAction="#minVentana" prefHeight="39.0" prefWidth="36.0" text="Button">
                <effect>
@@ -48,7 +48,7 @@
    <left>
       <VBox prefHeight="358.0" prefWidth="163.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="homeBoton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#HomeBoton" prefHeight="39.0" prefWidth="299.0" text="Home">
+            <Button fx:id="homeBoton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#HomeClick" prefHeight="39.0" prefWidth="299.0" text="Home">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>

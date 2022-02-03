@@ -72,8 +72,7 @@ public class DashboardPrincipalController implements Initializable {
      * Evento onClick para ir al home
      * @param event 
      */
-    @FXML
-    private void HomeClick(ActionEvent event) {
+    private void HomeBoton(ActionEvent event) {
         
         try {
             panel.getChildren().clear();
@@ -89,7 +88,7 @@ public class DashboardPrincipalController implements Initializable {
      * @param event 
      */
     @FXML
-    private void InfNutricionalClick(ActionEvent event) {
+    private void InformacionBoton(ActionEvent event) {
         
         try {       
             panel.getChildren().clear();
@@ -129,6 +128,15 @@ public class DashboardPrincipalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    @FXML
+    private void UsuarioBoton(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void EstadisticaBoton(ActionEvent event) {
+        
     }
     
     /**
@@ -183,4 +191,8 @@ public class DashboardPrincipalController implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }        
+
+    @FXML
+    private void HomeClick(ActionEvent event) {
+    }
 }
