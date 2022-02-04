@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package recetasfx.modelo.utils;
+package recetasfx.modelo.utils.FileManagers;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,23 +11,32 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import recetasfx.modelo.entities.Receta;
+import recetasfx.modelo.entities.Usuario;
 //import static sun.text.normalizer.UTF16.append;
 
 /**
  *
  * @author Jose
  */
-public class FileManager {
+public class FileManagerUsuarios {
     
     String ruta;
-    File file = new File(ruta);
+    ArrayList<Usuario>users = new ArrayList<>();
+    //ArrayList<Receta>recipes = new ArrayList<>();
+    File archivoUsuario = new File("users.txt");
+    //File archivoRecetas = new File("recetas.txt");
+    
     //Constructor por defecto
-    public FileManager(){}
+    public FileManagerUsuarios(){}
+    
     /**
      * Constructor en el que se le pasa la ruta del archivo
      */
-    public FileManager(String ruta){		
+    public FileManagerUsuarios(String ruta){		
         this.ruta = ruta;	
     }
     
@@ -40,7 +49,7 @@ public class FileManager {
 	
         FileWriter writer = null;
         try{
-            writer = new FileWriter(file);
+            writer = new FileWriter(archivoUsuario);
             PrintWriter pw = new PrintWriter(writer);
             pw.println(valor);
 	    pw.flush();	
@@ -58,24 +67,24 @@ public class FileManager {
      * Metodo para leer un archivo completo
      * devolviendo este archivo en un ArrayList
      */		
-    public ArrayList<String> leerArchivo() throws IOException{
-        FileReader reader = null;
-        BufferedReader br = null;
-        ArrayList<String> lineas = new ArrayList<>();
-        try{ 
-            reader = new FileReader(file);	
-            br = new BufferedReader(reader);
-            String line;
-            while((line = br.readLine()) != null) {
-                lineas.add(line);
+    public ArrayList<Usuario> loginUsuarios() throws IOException{
+        Path pathFile = archivoUsuario.toPath();
+
+            if (pathFile != null) {
+                try (BufferedReader bf = Files.newBufferedReader(pathFile)){
+                String texto;
+                
+                while ((texto = bf.readLine())!=null){
+                    String[]datos = texto.split(":");
+                    Usuario user = new Usuario(datos[0], datos[1], datos[2]);
+                    users.add(user);
+                    }
+                bf.close();
+                }
             }
-        }catch(Exception e){
-            System.out.println("Ha habido un error al leer el archivo");
-        }finally{
-            reader.close();
-            br.close();
-        }
-        return lineas;
+        
+        return users;
+        
     }
     
     public int contarLineas()throws IOException{
@@ -83,7 +92,7 @@ public class FileManager {
         BufferedReader br = null;
         int cont = 0;
         try{ 
-            reader = new FileReader(file);	
+            reader = new FileReader(archivoUsuario);	
             br = new BufferedReader(reader);
             String line;
             while((line = br.readLine()) != null) {

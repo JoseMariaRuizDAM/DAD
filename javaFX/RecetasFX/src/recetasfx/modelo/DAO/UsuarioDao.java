@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import recetasfx.modelo.entities.Usuario;
-import recetasfx.modelo.utils.FileManager;
+import recetasfx.modelo.utils.FileManagers.FileManagerUsuarios;
 
 /**
  *
@@ -19,7 +19,7 @@ import recetasfx.modelo.utils.FileManager;
 public class UsuarioDao {
     
     Usuario user = new Usuario();
-    FileManager fileManager = new FileManager("users.txt");
+    FileManagerUsuarios fileManager = new FileManagerUsuarios("users.txt");
     int numUsuarios = 0;
     
     /**
@@ -52,11 +52,11 @@ public class UsuarioDao {
         
         return creado;		
     }
-    
+    /*
     public String UserLogin(Usuario user) throws IOException {
         user = new Usuario(user.getUser(), user.getPassword());
         String rol = null;
-        ArrayList<String> usuarios = fileManager.leerArchivo();
+        ArrayList<Usuario> usuarios = fileManager.loginUsuarios();
         String[] nombre = new String[numUsuarios];
         String[] contra = new String[numUsuarios];
         String[] puesto = new String[numUsuarios];
@@ -85,6 +85,6 @@ public class UsuarioDao {
             rol = null;
         }
         return rol;
-    }
+    }*/
 }    
 

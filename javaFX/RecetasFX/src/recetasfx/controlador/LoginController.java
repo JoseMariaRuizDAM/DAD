@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -25,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import recetasfx.modelo.utils.FileManagers.FileManagerUsuarios;
 
 /**
  *
@@ -40,7 +42,7 @@ public class LoginController implements Initializable {
     @FXML
     private PasswordField password_login;
     
-    
+    FileManagerUsuarios fm;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,48 +58,41 @@ public class LoginController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         String rol = null;
-        try{
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
 
-                    Parent root = loader.load();
-                    DashboardPrincipalController contPrincipal = loader.getController();
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.initStyle(StageStyle.UNDECORATED);
-                    stage.setScene(scene);
-                    stage.show(); //Mostrar el stage PrincipalFXML
+        Parent root = loader.load();
+        DashboardPrincipalController contPrincipal = loader.getController();
+        
+        if(password_login.getText()!=null &&
+                !password_login.getText().isEmpty() &&
+                user_login.getText()!=null &&
+                !user_login.getText().isEmpty()){
+            
+            
+            for (Usuario u : fm.loginUsuarios()) {    
+            
+                if(u.getUser().equals(user_login.getText()) && u.getPassword().equals(password_login.getText())){
+                    
+                    rol = u.getRol();
 
-
-                }catch(IOException e){
-                    e.printStackTrace();
-                }
-        /*
-        if(password_login.getText()!=null&& !password_login.getText().isEmpty() && user_login.getText()!=null && !user_login.getText().isEmpty()){
-            Usuario user = new Usuario(user_login.getText(), password_login.getText()); 
-            UsuarioDao login = new UsuarioDao();
-            rol = login.UserLogin(user);
-            //Comprueba que el rol no es nulo y abre una pantalla según el rol
-            if(rol != null){
-                System.out.println("Bienvenido " + rol);
-                try{
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
-
-                    Parent root = loader.load();
-                    DashboardPrincipalController contPrincipal = loader.getController();
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.setScene(scene);
-                    stage.show(); //Mostrar el stage PrincipalFXML
-
-
-                }catch(IOException e){
-                    e.printStackTrace();
+                    //Comprueba que el rol no es nulo y abre una pantalla según el rol
+                    if(rol != null){
+                        System.out.println("Bienvenido " + rol);                
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.setScene(scene);
+                        stage.show(); //Mostrar el stage DashboardPrincipalFXML
+                    }
+                 
+                }else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setTitle("¡Error!");
+                    alert.setContentText("Usuario o contraseña no válido.");
                 }
             }
-        }*/
-        // Inicio de la ventana Principal cuando hace click en el botón 
-        
-    }
+        }
+    } 
 }
     

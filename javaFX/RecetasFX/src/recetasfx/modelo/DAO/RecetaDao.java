@@ -6,7 +6,7 @@
 package recetasfx.modelo.DAO;
 
 import recetasfx.modelo.entities.Receta;
-import recetasfx.modelo.utils.FileManager;
+import recetasfx.modelo.utils.FileManagers.FileManagerUsuarios;
 
 /**
  *
@@ -15,7 +15,7 @@ import recetasfx.modelo.utils.FileManager;
 public class RecetaDao {
     
     Receta receta = new Receta();
-    FileManager fileManager = new FileManager("recetas.txt");
+    FileManagerUsuarios fileManager = new FileManagerUsuarios("recetas.txt");
     
     //Constructor por defecto
     public RecetaDao(){}
