@@ -5,11 +5,22 @@
  */
 package recetasfx.controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -20,6 +31,8 @@ public class HomeController implements Initializable {
 
     @FXML
     private TextField buscadorText;
+    @FXML
+    private Button addButton;
 
     /**
      * Initializes the controller class.
@@ -28,5 +41,48 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void agregarReceta(ActionEvent event) {
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/CrearReceta.fxml"));
+            Parent root = loader.load();
+            CrearRecetaController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.showAndWait();
+
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        Stage gestionRecetaStage = (Stage) this.addButton.getScene().getWindow();
+        gestionRecetaStage.close();
+        redirigirHome();
+    }
     
+    /**
+     * Metodo para redirigir al home
+     */
+    public void redirigirHome(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app_recetas/vista/DashboardPrincipal.fxml"));
+            Parent root = loader.load();
+            DashboardPrincipalController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+            
+        } catch (IOException ex) {
+           
+        }
+        
+    }
 }

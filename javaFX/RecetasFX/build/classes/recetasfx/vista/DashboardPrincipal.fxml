@@ -10,14 +10,14 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.DashboardPrincipalController">
    <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="63.0" prefWidth="735.0" style="-fx-background-color: #7C5D3D;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="63.0" prefWidth="829.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="63.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/logoRecipes.PNG" />
                </image>
                <HBox.margin>
-                  <Insets right="440.0" />
+                  <Insets right="430.0" />
                </HBox.margin>
             </ImageView>
             <Button fx:id="minVentana" mnemonicParsing="false" onAction="#minVentana" prefHeight="39.0" prefWidth="36.0" text="Button">
@@ -49,7 +49,7 @@
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets right="12.0" />
+            <Insets />
          </BorderPane.margin>
       </HBox>
    </top>
@@ -65,10 +65,10 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="InformacionBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#InformacionBoton" prefHeight="39.0" prefWidth="287.0" style="-fx-background-color: none;" text="Información Nutricional" textAlignment="CENTER">
+            <Button fx:id="InformacionBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#InformacionBoton" prefHeight="39.0" prefWidth="287.0" style="-fx-background-color: none;" text="Información Nutricional">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,7 +80,7 @@
                   <Font name="System Bold" size="10.0" />
                </font>
             </Button>
-            <Button fx:id="BuscadorBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#BuscadorBoton" prefHeight="39.0" prefWidth="530.0" style="-fx-background-color: none;" text="Buscador Recetas" textAlignment="CENTER">
+            <Button fx:id="BuscadorBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#BuscadorBoton" prefHeight="39.0" prefWidth="530.0" style="-fx-background-color: none;" text="Buscador Recetas">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -92,7 +92,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="NotasBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#NotasBoton" prefHeight="39.0" prefWidth="627.0" style="-fx-background-color: none;" text="Poner Notas" textAlignment="CENTER">
+            <Button fx:id="NotasBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#NotasBoton" prefHeight="39.0" prefWidth="627.0" style="-fx-background-color: none;" text="Poner Notas">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -104,7 +104,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="UsuarioBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#UsuarioBoton" prefHeight="39.0" prefWidth="685.0" style="-fx-background-color: none;" text="Gestion Usuarios" textAlignment="CENTER">
+            <Button fx:id="UsuarioBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#UsuarioBoton" prefHeight="39.0" prefWidth="685.0" style="-fx-background-color: none;" text="Gestion Usuarios">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -116,7 +116,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="EstadisticaBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#EstadisticaBoton" prefHeight="39.0" prefWidth="618.0" style="-fx-background-color: none;" text="Estadisticas" textAlignment="CENTER">
+            <Button fx:id="EstadisticaBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#EstadisticaBoton" prefHeight="39.0" prefWidth="618.0" style="-fx-background-color: none;" text="Estadisticas">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -128,7 +128,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="cerrarSesion" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="39.0" prefWidth="705.0" style="-fx-background-color: none;" text="Cerrar Sesion" textAlignment="CENTER">
+            <Button fx:id="cerrarSesion" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="39.0" prefWidth="705.0" style="-fx-background-color: none;" text="Cerrar Sesion">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -144,6 +144,6 @@
       </VBox>
    </left>
    <center>
-      <Pane fx:id="panel" prefHeight="444.0" prefWidth="637.0" style="-fx-background-color: ebe9ec;" BorderPane.alignment="CENTER" />
+      <Pane fx:id="panel" prefHeight="444.0" prefWidth="637.0" style="-fx-background-color: cebe9e;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

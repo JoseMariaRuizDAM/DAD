@@ -12,6 +12,8 @@ import java.io.IOException;
 import recetasfx.controlador.DashboardPrincipalController;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +36,7 @@ import recetasfx.modelo.utils.FileManagers.FileManagerUsuarios;
  */
 public class LoginController implements Initializable {
     
+    private Stage stage = null;
     private Label label;
     @FXML
     private Button login_btn;
@@ -59,10 +62,18 @@ public class LoginController implements Initializable {
     private void handleButtonAction(ActionEvent event) throws IOException {
         String rol = null;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
+                            Parent root = loader.load();
+                            DashboardPrincipalController contPrincipal = loader.getController();
+                            System.out.println("Bienvenido " + rol);         
+                            Scene scene = new Scene(root);
+                            stage = new Stage();
+                            stage.initStyle(StageStyle.UNDECORATED);
+                            stage.setScene(scene);
+                            stage.show();//Mostrar el stage DashboardPrincipalFXML
 
-        Parent root = loader.load();
-        DashboardPrincipalController contPrincipal = loader.getController();
-        
+                            Stage mystage = (Stage) this.login_btn.getScene().getWindow();
+                            mystage.close();
+        /*
         if(password_login.getText()!=null &&
                 !password_login.getText().isEmpty() &&
                 user_login.getText()!=null &&
@@ -77,12 +88,24 @@ public class LoginController implements Initializable {
 
                     //Comprueba que el rol no es nulo y abre una pantalla según el rol
                     if(rol != null){
-                        System.out.println("Bienvenido " + rol);                
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.setScene(scene);
-                        stage.show(); //Mostrar el stage DashboardPrincipalFXML
+                        
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
+                            Parent root = loader.load();
+                            DashboardPrincipalController contPrincipal = loader.getController();
+                            System.out.println("Bienvenido " + rol);         
+                            Scene scene = new Scene(root);
+                            stage = new Stage();
+                            stage.initStyle(StageStyle.UNDECORATED);
+                            stage.setScene(scene);
+                            stage.show();//Mostrar el stage DashboardPrincipalFXML
+
+                            Stage mystage = (Stage) this.login_btn.getScene().getWindow();
+                            mystage.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
                     }
                  
                 }else {
@@ -92,7 +115,7 @@ public class LoginController implements Initializable {
                     alert.setContentText("Usuario o contraseña no válido.");
                 }
             }
-        }
+        }*/
     } 
 }
     
