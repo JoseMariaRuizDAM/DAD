@@ -11,30 +11,32 @@ package recetasfx.modelo.entities;
  */
 public class Receta {
     
-    String nombre, autor, tipoReceta, ingredientes, pasos;
-    int comensales, tiempoPreparacion, calorias;
+    String nombre, autor, tipoReceta, ingredientes, imagen;
+    int comensales, tiempoPreparacion, calorias, pasos;
     
     
     /**
      * Constructor que recoge todos los datos de la receta
      */
-    public Receta(String titulo, String autor, String tipoReceta, String ingredientes, String pasos, int comensales, int tiempoPreparacion, int calorias) {
+    public Receta(String titulo, String autor, String tipoReceta, String ingredientes, String imagen, int pasos, int comensales, int tiempoPreparacion, int calorias) {
         this.nombre = titulo;
         this.autor = autor;
         this.tipoReceta = tipoReceta;
         this.ingredientes = ingredientes;
+        this.imagen = imagen;
         this.pasos = pasos;
         this.comensales = comensales;
         this.tiempoPreparacion = tiempoPreparacion;
         this.calorias = calorias;
+        
     }
 
     /**
      * Constructor por defecto
      */
     public Receta(){}
-    
-    //Comienzo de Getters and setters
+
+    //Comienzo de Getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -67,11 +69,11 @@ public class Receta {
         this.ingredientes = ingredientes;
     }
 
-    public String getPasos() {
+    public int getPasos() {
         return pasos;
     }
 
-    public void setPasos(String pasos) {
+    public void setPasos(int pasos) {
         this.pasos = pasos;
     }
 
@@ -97,5 +99,13 @@ public class Receta {
 
     public void setCalorias(int calorias) {
         this.calorias = calorias;
+    }
+    
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

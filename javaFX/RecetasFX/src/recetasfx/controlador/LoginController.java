@@ -28,8 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import recetasfx.modelo.utils.FileManagers.FileManagerUsuarios;
-
+import recetasfx.modelo.connection.DbConnection;
 /**
  *
  * @author Jose
@@ -45,11 +44,15 @@ public class LoginController implements Initializable {
     @FXML
     private PasswordField password_login;
     
-    FileManagerUsuarios fm;
+    DbConnection db;
+    Usuario user;
+    UsuarioDao userDao;
+    String rol;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        db = new DbConnection();
+        userDao = new UsuarioDao(db);
     }    
     
     /**
@@ -60,62 +63,44 @@ public class LoginController implements Initializable {
      */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
-        String rol = null;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
-                            Parent root = loader.load();
-                            DashboardPrincipalController contPrincipal = loader.getController();
-                            System.out.println("Bienvenido " + rol);         
-                            Scene scene = new Scene(root);
-                            stage = new Stage();
-                            stage.initStyle(StageStyle.UNDECORATED);
-                            stage.setScene(scene);
-                            stage.show();//Mostrar el stage DashboardPrincipalFXML
-
-                            Stage mystage = (Stage) this.login_btn.getScene().getWindow();
-                            mystage.close();
-        /*
-        if(password_login.getText()!=null &&
-                !password_login.getText().isEmpty() &&
-                user_login.getText()!=null &&
-                !user_login.getText().isEmpty()){
+        if(password_login.getText()!=null&& !password_login.getText().isEmpty() 
+                && user_login.getText()!=null && !user_login.getText().isEmpty()){
             
-            
-            for (Usuario u : fm.loginUsuarios()) {    
-            
-                if(u.getUser().equals(user_login.getText()) && u.getPassword().equals(password_login.getText())){
+            user = userDao.select(user_login.getText());
+            if(user!=null){
+                if(user.getPassword().equals(password_login.getText())){
+                    rol=user.getRol();
                     
-                    rol = u.getRol();
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("recetasfx/vista/DashboardPrincipal.fxml"));
+                        Parent root = loader.load();
+                        DashboardPrincipalController controller = loader.getController();
 
-                    //Comprueba que el rol no es nulo y abre una pantalla según el rol
-                    if(rol != null){
+                        Scene scene = new Scene(root);
+                        stage = new Stage();
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.setScene(scene);
+                        stage.show();
                         
-                        try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
-                            Parent root = loader.load();
-                            DashboardPrincipalController contPrincipal = loader.getController();
-                            System.out.println("Bienvenido " + rol);         
-                            Scene scene = new Scene(root);
-                            stage = new Stage();
-                            stage.initStyle(StageStyle.UNDECORATED);
-                            stage.setScene(scene);
-                            stage.show();//Mostrar el stage DashboardPrincipalFXML
-
-                            Stage mystage = (Stage) this.login_btn.getScene().getWindow();
-                            mystage.close();
-                        } catch (IOException ex) {
-                            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
+                        Stage mystage = (Stage) this.login_btn.getScene().getWindow();
+                        mystage.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                 
-                }else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText(null);
-                    alert.setTitle("¡Error!");
-                    alert.setContentText("Usuario o contraseña no válido.");
+                }else{
+                    login_btn.setText("");
+                    password_login.setText("");
+                    //mandarError(ERROR_LOGIN_NOENCONTRADO_TITULO,ERROR_LOGIN_NOENCONTRADO_TEXTO);
+                    System.out.println("Error usuario no encontrado");
                 }
             }
-        }*/
-    } 
-}
+        }else{
+            user_login.setText("");
+            password_login.setText("");
+            //mandarError(ERROR_LOGIN_VACIO_TITULO,ERROR_LOGIN_VACIO_TEXTO);
+            System.out.println("Error campos vacios");
+        }       
+    }
+}    
+
     

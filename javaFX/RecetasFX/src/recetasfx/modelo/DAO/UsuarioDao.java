@@ -5,21 +5,26 @@
  */
 package recetasfx.modelo.DAO;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+import recetasfx.modelo.connection.DbConnection;
 import recetasfx.modelo.entities.Usuario;
-import recetasfx.modelo.utils.FileManagers.FileManagerUsuarios;
+import recetasfx.modelo.contract.UsuarioEntry;
 
 /**
  *
  * @author Jose
  */
-public class UsuarioDao {
+public class UsuarioDao extends UsuarioEntry implements ICRUD<Usuario, String>{
     
+    
+    DbConnection db;
     Usuario user = new Usuario();
-    FileManagerUsuarios fileManager = new FileManagerUsuarios("users.txt");
     int numUsuarios = 0;
     
     /**
@@ -27,64 +32,98 @@ public class UsuarioDao {
      * en el que se añade la cantidad de usuarios
      * que hay dentro del archivo
      */
-    public UsuarioDao() throws IOException{
-        numUsuarios = fileManager.contarLineas();
+    public UsuarioDao(DbConnection db){
+        this.db = db;
     }
     
-    /**
-    * Metodo para la creación de un usuario en el archivo users.txt
-    */
-    public boolean crearUsuario(String nombre,
-                                String password,
-                                String rol){
-			
-        boolean creado = false;
-			
-        try //Comienzo a escribir el usuario en el archivo		
-        {
-            this.user.setUser(nombre);
-            this.user.setPassword(password);
-            this.user.setRol(rol);
-            creado = fileManager.escribirConSaltoLinea(user.toString());			
-        }catch (Exception e){
-            System.out.println("No se ha podido crear el paciente");			
+    @Override
+    public Usuario select(String id) {
+        try (Connection connection = db.getConnection()) {
+            String sql = "SELECT * FROM " + TABLE_NAME + " where " + USER + " = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next())
+                    return new Usuario(rs.getString(USER), rs.getString(PASSWORD), rs.getString(ROLE));
+            return null;
+        } catch (SQLException e) {
+                return null;
         }
-        
-        return creado;		
     }
-    /*
-    public String UserLogin(Usuario user) throws IOException {
-        user = new Usuario(user.getUser(), user.getPassword());
-        String rol = null;
-        ArrayList<Usuario> usuarios = fileManager.loginUsuarios();
-        String[] nombre = new String[numUsuarios];
-        String[] contra = new String[numUsuarios];
-        String[] puesto = new String[numUsuarios];
-        int cont = 0;
-        try{
-            for (String linea : usuarios) {
-                String[] partes = linea.split(";"); //se divide cada linea con un split
-                nombre[cont] = partes[0]; // nombre del nombre en el archivo
-                contra[cont] = partes[1]; // contraseña del nombre en el archivo
-                puesto[cont] = partes[2]; // rol del nombre en el archivo
-                String recogerNombre = nombre[cont];
-                String recogerContra = contra[cont];            
-                //Se comprueba si es igual el nombre que se le ha pasado a los datos que estan dentro del archivo
-                if (recogerNombre.equals(user.getUser()) && recogerContra.equals(user.getPassword())){
-                    rol = puesto[cont];
-                }
-                else if(rol == null)
-                {
-                    rol = null;
-                }
-                cont++; // se usa el contador para saber que nombre es y se suma uno a cada vuelta del foreach
-            }       
-        }catch(Exception e){
-            String error = e.getMessage();
-            System.out.println("Ha habido un error: " + error);
-            rol = null;
+
+    @Override
+    public List<Usuario> selectAll() {
+        
+        List<Usuario> usuarios = new ArrayList<Usuario>();
+        try (Connection connection = db.getConnection()) {
+            Statement stmt = connection.createStatement();
+            String sql = "SELECT * FROM " + TABLE_NAME;
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) 
+                usuarios.add(new Usuario(rs.getString(USER),rs.getString(PASSWORD),rs.getString(ROLE)));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            return usuarios;
         }
-        return rol;
-    }*/
+    }
+
+    @Override
+    public Usuario insert(Usuario usuario) throws SQLException {
+        try (Connection connection = db.getConnection()) {
+                String sql = "INSERT INTO " + TABLE_NAME + " (" + USER + ", " + PASSWORD + ", " + ROLE  + ") VALUES (?,?,?)";
+                PreparedStatement ps = connection.prepareStatement(sql);
+                ps.setString(1, usuario.getUser());
+                ps.setString(2, usuario.getPassword());
+                ps.setString(3, usuario.getRol());
+                int affectedRows = ps.executeUpdate();
+                if (affectedRows <= 0) {
+                        throw new SQLException("Error. No se pudo crear el usuario. Ninguna fila afectada.");
+                }
+        } catch (SQLException e) {
+                throw new SQLException(e.getMessage());
+        } finally {
+                return usuario;
+        }
+    }
+
+    @Override
+    public boolean update(Usuario usuario) throws SQLException {
+        try (Connection connection = db.getConnection()) {
+            String sql = "UPDATE users SET password = ?, role = ? WHERE nick = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, usuario.getPassword());
+            ps.setString(2, usuario.getRol());
+            ps.setString(3, usuario.getUser());
+            
+            int affectedRows = ps.executeUpdate();
+            if (affectedRows > 0) {
+                return true;
+            } else {
+                throw new SQLException("Error. No se pudo actualizar el usuario. Ninguna fila afectada.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean delete(String user) throws SQLException {
+        try (Connection connection = db.getConnection()) {
+                String sql = "DELETE  FROM " + TABLE_NAME + " WHERE " + USER + " = ?";
+                PreparedStatement ps = connection.prepareStatement(sql);
+                ps.setString(1, user);
+                int affectedRows = ps.executeUpdate();
+                if (affectedRows > 0) {
+                        return true;
+                } else {
+                        throw new SQLException("Error. No se pudo borrar el usuario. Ninguna fila afectada.");
+                }
+        } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+        }    
+    }
 }    
 
