@@ -38,6 +38,7 @@ public class UsuarioDao extends UsuarioEntry implements ICRUD<Usuario, String>{
     
     @Override
     public Usuario select(String id) {
+        
         try (Connection connection = db.getConnection()) {
             String sql = "SELECT * FROM " + TABLE_NAME + " where " + USER + " = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -47,7 +48,7 @@ public class UsuarioDao extends UsuarioEntry implements ICRUD<Usuario, String>{
                     return new Usuario(rs.getString(USER), rs.getString(PASSWORD), rs.getString(ROLE));
             return null;
         } catch (SQLException e) {
-                return null;
+            return null;
         }
     }
 

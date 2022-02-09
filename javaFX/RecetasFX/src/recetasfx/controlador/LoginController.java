@@ -65,17 +65,17 @@ public class LoginController implements Initializable {
     private void handleButtonAction(ActionEvent event) throws IOException {
         if(password_login.getText()!=null&& !password_login.getText().isEmpty() 
                 && user_login.getText()!=null && !user_login.getText().isEmpty()){
-            
+            System.out.println(user_login.getText());
             user = userDao.select(user_login.getText());
-            if(user!=null){
+            if(user != null){
                 if(user.getPassword().equals(password_login.getText())){
-                    rol=user.getRol();
-                    
+                    rol = user.getRol();
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("recetasfx/vista/DashboardPrincipal.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
+                        DashboardPrincipalController controller = new DashboardPrincipalController();
+                        controller.setRol(rol);
+                        loader.setController(controller);
                         Parent root = loader.load();
-                        DashboardPrincipalController controller = loader.getController();
-
                         Scene scene = new Scene(root);
                         stage = new Stage();
                         stage.initStyle(StageStyle.UNDECORATED);

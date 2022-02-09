@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/modelo/utils/FileManagers/FileManagerUsuarios.java</file>
-            <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/modelo/DAO/UsuarioDao.java</file>
+            <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/controlador/CrearRecetaController.java</file>
+            <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/modelo/contract/UsuarioEntry.java</file>
+            <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/controlador/DashboardPrincipalController.java</file>
             <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/controlador/LoginController.java</file>
-            <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/vista/Login.fxml</file>
+            <file>file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/modelo/DAO/RecetaDao.java</file>
         </group>
     </open-files>
 </project-private>

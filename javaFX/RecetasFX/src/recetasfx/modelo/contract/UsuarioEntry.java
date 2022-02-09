@@ -9,9 +9,9 @@ package recetasfx.modelo.contract;
  *
  * @author Jose
  */
-public abstract class UsuarioEntry {
+public class UsuarioEntry {
     public static final String TABLE_NAME = "users";
-    public static final String USER = "user";
+    public static final String USER = "nick";
     public static final String PASSWORD = "password";
     public static final String ROLE = "role";
 }

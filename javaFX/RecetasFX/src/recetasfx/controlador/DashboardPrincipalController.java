@@ -53,6 +53,16 @@ public class DashboardPrincipalController implements Initializable {
     @FXML
     private Button EstadisticaBoton;
     
+    String rol;
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+    
     /**
      * Initializes the controller class.
      */
@@ -65,7 +75,6 @@ public class DashboardPrincipalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }   
-        
     }   
     
     /**
@@ -133,6 +142,13 @@ public class DashboardPrincipalController implements Initializable {
     @FXML
     private void UsuarioBoton(ActionEvent event) {
         
+        try {       
+            panel.getChildren().clear();
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/GestionUsuario.fxml"));
+            panel.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @FXML
@@ -179,7 +195,7 @@ public class DashboardPrincipalController implements Initializable {
         stage = (Stage) this.cerrarSesion.getScene().getWindow();
         stage.close();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RecetasFX/vista/Login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/Login.fxml"));
             Parent root = loader.load();
             LoginController controller = loader.getController();
 

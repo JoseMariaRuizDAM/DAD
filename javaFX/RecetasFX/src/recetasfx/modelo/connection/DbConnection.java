@@ -24,7 +24,6 @@ public class DbConnection {
     private final static String url="jdbc:mysql://localhost/recetas";
     
     public DbConnection(){
-    
         connection = null;
         
         try {
@@ -35,10 +34,13 @@ public class DbConnection {
             }
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Error en "+e);
+            System.exit(1);
         }
     }
 
     public Connection getConnection(){
+        //if(connection == null) 
+            
            return connection;
        }
 

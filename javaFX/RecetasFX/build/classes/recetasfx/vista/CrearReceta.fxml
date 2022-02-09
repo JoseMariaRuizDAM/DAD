@@ -1,12 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="397.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.CrearRecetaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.CrearRecetaController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="397.0" style="-fx-background-color: cebe9e;" />
-      <VBox alignment="CENTER" layoutX="-1.0" layoutY="100.0" prefHeight="302.0" prefWidth="397.0" />
+      <HBox prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: cebe9e;">
+         <children>
+            <Label prefHeight="49.0" prefWidth="253.0" text="Crear Receta">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="cerrarBtn" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#cerrarClick" prefHeight="39.0" prefWidth="37.0" textAlignment="RIGHT">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/Jose/Documents/GitHub/DAD/javaFX/RecetasFX/src/recetasfx/icons/window-close.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <HBox.margin>
+                  <Insets left="300.0" />
+               </HBox.margin>
+            </Button>
+         </children></HBox>
+      <VBox alignment="CENTER" layoutX="-1.0" layoutY="79.0" prefHeight="423.0" prefWidth="397.0">
+         <children>
+            <Label contentDisplay="RIGHT" prefHeight="39.0" prefWidth="370.0" text="Nombre">
+               <VBox.margin>
+                  <Insets left="5.0" top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <TextField fx:id="txtNombre" alignment="TOP_CENTER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+               </graphic>
+            </Label>
+            <Label contentDisplay="RIGHT" prefHeight="39.0" prefWidth="407.0" text="Autor">
+               <graphic>
+                  <TextField fx:id="txtAutor" />
+               </graphic>
+               <VBox.margin>
+                  <Insets left="5.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            <Label contentDisplay="RIGHT" prefHeight="39.0" prefWidth="364.0" text="Calorias">
+               <graphic>
+                  <TextField fx:id="txtCalorias" alignment="CENTER_RIGHT" />
+               </graphic>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </Label>
+            <Label contentDisplay="RIGHT" prefHeight="39.0" prefWidth="364.0" text="Tiempo">
+               <graphic>
+                  <TextField fx:id="txtTiempo" />
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </Label>
+            <Label contentDisplay="RIGHT" prefHeight="86.0" prefWidth="362.0" text="Ingredientes">
+               <graphic>
+                  <TextArea fx:id="txtIngredientes" prefHeight="86.0" prefWidth="200.0" />
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+            </Label>
+            <Button fx:id="crearRecetaBtn" mnemonicParsing="false" onAction="#CrearRecetaClick" text="Crear">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+         </children></VBox>
    </children>
 </AnchorPane>

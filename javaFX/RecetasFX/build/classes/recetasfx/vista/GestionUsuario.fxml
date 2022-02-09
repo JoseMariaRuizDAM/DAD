@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="444.0" prefWidth="537.0" styleClass="fondoLoginDer" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.GestionUsuariosController">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="10.0" prefHeight="66.0" prefWidth="737.0" spacing="20.0" styleClass="Main" stylesheets="@../css/estilosHome.css">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../imagenes/menu/clipboard-account-outline.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="18.0" prefWidth="140.0" styleClass="texto" text="USUARIOS" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxTipoRecetas" alignment="CENTER_RIGHT" layoutX="49.0" layoutY="76.0" prefHeight="56.0" prefWidth="682.0" spacing="30.0">
+         <children>
+            <Button fx:id="btnEditUser" mnemonicParsing="false" onAction="#EditUserClick" styleClass="btnOpcionesSecundarias" text="Editar usuario" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/account-edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnBorrarUser" mnemonicParsing="false" onAction="#BorrarUserClick" styleClass="btnOpcionesSecundarias" text="Borrar usuario" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/account-minus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCrearUser" mnemonicParsing="false" onAction="#CrearUserClick" styleClass="btnOpcionesSecundarias" text="Crear usuario" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/account-plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <TableView fx:id="tabla" layoutX="82.0" layoutY="179.0" prefHeight="347.0" prefWidth="597.0">
+        <columns>
+          <TableColumn fx:id="columnNombre" prefWidth="194.39998626708984" text="Nombre" />
+          <TableColumn fx:id="ColumnContraseña" minWidth="0.0" prefWidth="165.60003662109375" text="Contraseña" />
+            <TableColumn fx:id="ColumRol" minWidth="0.0" prefWidth="237.60006713867188" text="Rol" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
