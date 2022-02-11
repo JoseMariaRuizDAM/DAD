@@ -19,6 +19,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Slider;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -39,11 +42,7 @@ public class CrearRecetaController implements Initializable {
     int pasos,comensales,tiempoReceta,calorias;
     
     Stage stage;
-    @FXML
     private Button cerrarBtn;
-    @FXML
-    private Button crearRecetaBtn;
-    @FXML
     private TextField txtNombre;
     @FXML
     private TextField txtAutor;
@@ -51,8 +50,21 @@ public class CrearRecetaController implements Initializable {
     private TextField txtCalorias;
     @FXML
     private TextField txtTiempo;
-    @FXML
     private TextArea txtIngredientes;
+    @FXML
+    private Button btnCerrar;
+    @FXML
+    private TextField txtTitulo;
+    @FXML
+    private Slider SliderPasos;
+    @FXML
+    private Spinner<Integer> spinerComensales;
+    @FXML
+    private ComboBox<String> txtTipo;
+    @FXML
+    private TextArea txaIngredientes;
+    @FXML
+    private Button btnCrear;
 
     /**
      * Initializes the controller class.
@@ -62,13 +74,11 @@ public class CrearRecetaController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void cerrarClick(ActionEvent event) {
         stage = (Stage) this.cerrarBtn.getScene().getWindow();
         stage.close();
     }
 
-    @FXML
     private void CrearRecetaClick(ActionEvent event) {
         DbConnection db = new DbConnection();
         RecetaDao recetaDao = new RecetaDao(db);
@@ -76,33 +86,33 @@ public class CrearRecetaController implements Initializable {
         if (!txtNombre.getText().isEmpty() &&
                 !txtAutor.getText().isEmpty() &&
                 !txtCalorias.getText().isEmpty() &&
-                !txtIngredientes.getText().isEmpty() //&&
-                /*!txtTipo.getValue().isEmpty() &&
-                txtTipo != null*/) {
+                !txtIngredientes.getText().isEmpty() &&
+                !txtTipo.getValue().isEmpty() &&
+                txtTipo != null) {
             
             nombre = txtNombre.getText();
             autor = txtAutor.getText();
             calorias = Integer.parseInt(txtCalorias.getText());
             tiempoReceta = Integer.parseInt(txtTiempo.getText());
             ingredientes = txtIngredientes.getText();
-            /*pasos = (int) SliderPasos.getValue();
+            pasos = (int) SliderPasos.getValue();
             comensales = spinerComensales.getValue();
-            tipoReceta = txtTipo.getSelectionModel().getSelectedItem();*/
+            tipoReceta = txtTipo.getSelectionModel().getSelectedItem();
 
             imagen = "food-fork-drink.png";
 
-            /*Receta receta = new Receta(nombre, autor, tipoReceta, ingredientes, pasos, comensales, tiempoReceta, calorias, imagen);
+            Receta receta = new Receta(nombre, autor, tipoReceta, ingredientes, imagen, pasos, comensales, tiempoReceta, calorias);
             try {
                 recetaDao.insert(receta);
             } catch (SQLException ex) {
                 Logger.getLogger(CrearRecetaController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            */
+            /*
             try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/app_recetas/vista/CreadoModificadoDialogo.fxml"));
             Parent root = loader.load();
-            /*CreadoModificadoDialogoController controller = loader.getController();
-            controller.setTitulo(RECETA_TITULO_CREADO);*/
+            CreadoModificadoDialogoController controller = loader.getController();
+            controller.setTitulo(RECETA_TITULO_CREADO);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -111,17 +121,70 @@ public class CrearRecetaController implements Initializable {
             stage.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         Stage stagecrear = (Stage) this.cerrarBtn.getScene().getWindow();
         stagecrear.close();
-            
-        
 
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Error campos vacios");
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    private void CrearClick(ActionEvent event) {
+        
+        DbConnection db = new DbConnection();
+        RecetaDao recetaDao = new RecetaDao(db);
+
+        if (!txtTitulo.getText().isEmpty() && !txtAutor.getText().isEmpty() && !txtCalorias.getText().isEmpty() && !txaIngredientes.getText().isEmpty() && !txtTipo.getValue().isEmpty() && txtTipo != null) {
+            nombre = txtTitulo.getText();
+            autor = txtAutor.getText();
+            calorias = Integer.parseInt(txtCalorias.getText());
+            tiempoReceta = Integer.parseInt(txtTiempo.getText());
+            ingredientes = txaIngredientes.getText();
+            pasos = (int) SliderPasos.getValue();
+            comensales = spinerComensales.getValue();
+            tipoReceta = txtTipo.getSelectionModel().getSelectedItem();
+
+            imagen = "food-fork-drink.png";
+
+            Receta receta = new Receta(nombre, autor, tipoReceta, ingredientes, imagen, pasos, comensales, tiempoReceta, calorias);
+            try {
+                recetaDao.insert(receta);
+            } catch (SQLException ex) {
+                Logger.getLogger(CrearRecetaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            /*
+            try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app_recetas/vista/CreadoModificadoDialogo.fxml"));
+            Parent root = loader.load();
+            CreadoModificadoDialogoController controller = loader.getController();
+            controller.setTitulo(RECETA_TITULO_CREADO);
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        Stage stagecrear = (Stage) this.btnCerrar.getScene().getWindow();
+        stagecrear.close();
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Error campos vacios");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void CerrarClick(ActionEvent event) {
+        Stage stage = (Stage) this.btnCerrar.getScene().getWindow();
+        stage.close();
     }
     
 }

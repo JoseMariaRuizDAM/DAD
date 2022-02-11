@@ -7,9 +7,13 @@ package recetasfx.controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +30,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import recetasfx.modelo.DAO.UsuarioDao;
 import recetasfx.modelo.connection.DbConnection;
+import recetasfx.modelo.entities.Usuario;
 
 /**
  * FXML Controller class
@@ -43,16 +48,18 @@ public class GestionUsuariosController implements Initializable {
     @FXML
     private Button btnCrearUser;
     @FXML
-    private TableView<?> tabla;
+    private TableView<Usuario> tabla;
     @FXML
-    private TableColumn<?, ?> columnNombre;
+    private TableColumn<Usuario, String> columnNombre;
     @FXML
-    private TableColumn<?, ?> ColumnContraseña;
+    private TableColumn<Usuario, String> ColumnContraseña;
     @FXML
-    private TableColumn<?, ?> ColumRol;
+    private TableColumn<Usuario, String> ColumRol;
     
     UsuarioDao usuarioDao;
     DbConnection db;
+    private ArrayList<Usuario> usuarios;
+    String nombreUsuario;
             
 
     /**
@@ -63,11 +70,11 @@ public class GestionUsuariosController implements Initializable {
         db = new DbConnection();
         usuarioDao = new UsuarioDao(db);
         
-        this.columnNombre.setCellValueFactory(new PropertyValueFactory<Usuario, String>("nick"));
+        this.columnNombre.setCellValueFactory(new PropertyValueFactory<Usuario, String>("User"));
         
-        this.ColumnContraseña.setCellValueFactory(new PropertyValueFactory<Usuario, String>("pass"));
+        this.ColumnContraseña.setCellValueFactory(new PropertyValueFactory<Usuario, String>("Password"));
         
-        this.ColumRol.setCellValueFactory(new PropertyValueFactory<Usuario, String>("role"));
+        this.ColumRol.setCellValueFactory(new PropertyValueFactory<Usuario, String>("Rol"));
         
         
         //llenarLista();
@@ -82,11 +89,13 @@ public class GestionUsuariosController implements Initializable {
     private void EditUserClick(ActionEvent event) {
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app_recetas/vista/ModificarUsuario.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/EditarrUsuario.fxml"));
             Parent root = loader.load();
             EditarUsuarioController controller = loader.getController();
             
-            controller.datosUsuario(tabla.getSelectionModel().getSelectedItem().getNick(),tabla.getSelectionModel().getSelectedItem().getPass(),tabla.getSelectionModel().getSelectedItem().getRole());
+            controller.datosUsuario(tabla.getSelectionModel().getSelectedItem().getUser(),
+                    tabla.getSelectionModel().getSelectedItem().getPassword(),
+                    tabla.getSelectionModel().getSelectedItem().getRol());
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -109,6 +118,15 @@ public class GestionUsuariosController implements Initializable {
 
     @FXML
     private void BorrarUserClick(ActionEvent event) {
+        
+        try {
+            nombreUsuario = tabla.getSelectionModel().getSelectedItem().getUser();
+            UsuarioDao userDao = new UsuarioDao(db);
+            
+            userDao.delete(nombreUsuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -155,5 +173,28 @@ public class GestionUsuariosController implements Initializable {
         }
         
         
+    }
+    
+    /**
+     * Obtengo la lista de usuarios en formato observable
+     * @return 
+     */
+    public ObservableList<Usuario> getUsuarios(){
+        ObservableList<Usuario> obs = FXCollections.observableArrayList();
+        usuarios = (ArrayList<Usuario>) usuarioDao.selectAll();
+        
+        for (int i = 0; i < usuarios.size(); i++) {
+            obs.add(usuarios.get(i));
+        }
+        
+        return obs;
+    }
+    
+    /**
+     * Metodo para recargar la tabla
+     */
+    public void reloadTable(){
+        getUsuarios();
+        tabla.setItems(FXCollections.observableList(usuarios));
     }
 }
