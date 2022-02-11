@@ -29,7 +29,7 @@ public class CrearUsuarioController implements Initializable {
     @FXML
     private TextField txtContraseña;
     @FXML
-    private ComboBox<?> cbxRol;
+    private ComboBox<String> cbxRol;
     @FXML
     private Button btnCrear;
 
@@ -49,19 +49,15 @@ public class CrearUsuarioController implements Initializable {
     
     @FXML
     private void CrearClick(ActionEvent event) {
-        if(txtNombre!=null && !txtNombre.getText().isEmpty() && txtContraseña!=null && !txtContraseña.getText().isEmpty() && cbxRol.getSelectionModel().getSelectedItem()!=null){
+        if(txtNombre != null && !txtNombre.getText().isEmpty() &&
+                txtContraseña != null && !txtContraseña.getText().isEmpty() &&
+                cbxRol.getSelectionModel().getSelectedItem() != null){
             
             //mandarConfirmacion(CONFIRMACION_USUARIO_CREAR_TITULO, CONFIRMACION_USUARIO_CREAR_TEXXTO);
             Stage stage = (Stage) this.btnCrear.getScene().getWindow();
             stage.close();
-            
-            
-            
-            
         }else{
             //mandarError(ERROR_CREAR_USUARIO_TITULO, ERROR_CREAR_USUARIO_TEXTO);
         }
     }
-    
-    
 }

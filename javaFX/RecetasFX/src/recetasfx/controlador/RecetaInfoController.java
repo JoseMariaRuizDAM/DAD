@@ -95,9 +95,9 @@ public class RecetaInfoController implements Initializable {
     @FXML
     private void AccederClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app_recetas/vista/ItemInfo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/ItemInfo.fxml"));
             Parent root = loader.load();
-            ItemInfoController controller = loader.getController();
+            RecetaDetalleController controller = loader.getController();
             controller.ponerDatos(this.txtTitulo.getText());
             
             Scene scene = new Scene(root);
@@ -108,7 +108,7 @@ public class RecetaInfoController implements Initializable {
             stage.showAndWait();
             
         } catch (IOException ex) {
-            Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecetaInfoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -136,7 +136,7 @@ public class RecetaInfoController implements Initializable {
                         stage.showAndWait();
                         
                     } catch (IOException ex) {
-                        Logger.getLogger(BorrarRecetaDialogoController.class.getName()).log(Level.SEVERE, null, ex);
+                        //Logger.getLogger(BorrarRecetaDialogoController.class.getName()).log(Level.SEVERE, null, ex);
                     }
         Stage gestionRecetaStage = (Stage) this.btnBorrar.getScene().getWindow();
         gestionRecetaStage.close();

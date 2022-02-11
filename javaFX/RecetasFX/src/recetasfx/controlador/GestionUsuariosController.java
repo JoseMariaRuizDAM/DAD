@@ -89,7 +89,7 @@ public class GestionUsuariosController implements Initializable {
     private void EditUserClick(ActionEvent event) {
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/EditarrUsuario.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/EditarUsuario.fxml"));
             Parent root = loader.load();
             EditarUsuarioController controller = loader.getController();
             
@@ -170,9 +170,7 @@ public class GestionUsuariosController implements Initializable {
            // controller.cambiarStage();
         } catch (IOException ex) {
             Logger.getLogger(GestionUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+        }  
     }
     
     /**
@@ -185,8 +183,7 @@ public class GestionUsuariosController implements Initializable {
         
         for (int i = 0; i < usuarios.size(); i++) {
             obs.add(usuarios.get(i));
-        }
-        
+        }        
         return obs;
     }
     

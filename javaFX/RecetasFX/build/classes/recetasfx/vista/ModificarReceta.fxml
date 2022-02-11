@@ -14,18 +14,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="569.0" style="-fx-border-color: ffffff; -fx-border-width: 3px;" styleClass="fondoLoginDer" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.CrearRecetaController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="564.0" styleClass="fondoLoginDer" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.ModificarRecetaController">
    <children>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutY="6.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="40.0" styleClass="fondoLoginIzq">
                <children>
-                  <ImageView fitHeight="62.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen" fitHeight="62.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imagenes/item/food-fork-drink.png" />
                      </image>
                   </ImageView>
-                  <Label text="CREADOR DE RECETA" textFill="WHITE" />
+                  <Label text="MODIFICAR RECETA" textFill="WHITE" />
                   <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#CerrarClick" styleClass="cerrar" stylesheets="@../css/estilosBotonesVentana.css">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
@@ -46,7 +46,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="446.0" spacing="20.0">
                <children>
                   <Label text="Titulo" textFill="WHITE" />
-                  <TextField fx:id="txtTitulo" promptText="Titulo" />
+                  <TextField fx:id="txtTitulo" editable="false" promptText="Titulo" />
                   <Label text="Autor" textFill="WHITE" />
                   <TextField fx:id="txtAutor" prefHeight="26.0" prefWidth="146.0" promptText="Autor" />
                </children>
@@ -115,7 +115,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#CrearClick" styleClass="btnLogin" text="Crear" />
+                  <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#ModificarClick" styleClass="btnLogin" text="Modificar" />
                </children>
             </HBox>
          </children>
