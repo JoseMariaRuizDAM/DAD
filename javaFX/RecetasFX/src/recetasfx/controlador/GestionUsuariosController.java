@@ -94,8 +94,8 @@ public class GestionUsuariosController implements Initializable {
             EditarUsuarioController controller = loader.getController();
             
             controller.datosUsuario(tabla.getSelectionModel().getSelectedItem().getUser(),
-                    tabla.getSelectionModel().getSelectedItem().getPassword(),
-                    tabla.getSelectionModel().getSelectedItem().getRol());
+                tabla.getSelectionModel().getSelectedItem().getPassword(),
+                tabla.getSelectionModel().getSelectedItem().getRol());
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -104,15 +104,16 @@ public class GestionUsuariosController implements Initializable {
             stage.setScene(scene);
             stage.showAndWait();
             
-            //recargarTablaNuevosUser();
+            recargarTablaNuevosUser();
             
             
             
         } catch (IOException ex) {
             //Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Stage gestionUserStage = (Stage) this.btnCrearUser.getScene().getWindow();
-        gestionUserStage.close();
+        /*Stage gestionUserStage = (Stage) this.btnCrearUser.getScene().getWindow();
+        gestionUserStage.close();*/
+        recargarTablaNuevosUser();
         redirigirGestionUser();
     }
 
@@ -147,20 +148,19 @@ public class GestionUsuariosController implements Initializable {
         } catch (IOException ex) {
             //Logger.getLogger(ItemController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Stage gestionUserStage = (Stage) this.btnCrearUser.getScene().getWindow();
-        gestionUserStage.close();
-        redirigirGestionUser();
+        
+        //redirigirGestionUser();
     }
     
     /**
-     * Redirigo al usuario una vez finaliza sus acciones
+     * Redirigo al usuario una vez finaliza cualquier acción que ejecute
      */
     public void redirigirGestionUser(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
             Parent root = loader.load();
             DashboardPrincipalController controller = loader.getController();
-            //controller.setRecargarTablaUsuer();
+            //controller.setRecargarTablaUser();
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -194,4 +194,26 @@ public class GestionUsuariosController implements Initializable {
         getUsuarios();
         tabla.setItems(FXCollections.observableList(usuarios));
     }
+    
+    /**
+ * Metodo para recargar la tabla de usuatios
+ */
+    public void recargarTablaNuevosUser(){
+        ObservableList<Usuario> obs = FXCollections.observableArrayList();
+        UsuarioDao listauser = new UsuarioDao(db);
+        
+        ArrayList<Usuario> listau = (ArrayList<Usuario>) listauser.selectAll();
+        
+        for (int i = 0; i < listau.size(); i++) {
+
+            obs.add(listau.get(i));
+            System.out.println(""+listau.get(i).getUser());
+        }
+        
+        
+        tabla.setItems(FXCollections.observableList(listau));
+        
+        
+    }
+
 }

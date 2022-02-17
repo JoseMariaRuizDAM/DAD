@@ -14,23 +14,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="569.0" style="-fx-border-color: ffffff; -fx-border-width: 3px;" styleClass="fondoLoginDer" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.CrearRecetaController">
+<AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="569.0" style="-fx-background-color: cebe9e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.CrearRecetaController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="40.0" styleClass="fondoLoginIzq">
-               <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="40.0" style="-fx-background-color: #85AAAA;">
+              <children>
                   <ImageView fitHeight="62.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagenes/item/food-fork-drink.png" />
+                        <Image url="@../icons/food.png" />
                      </image>
                   </ImageView>
-                  <Label text="CREADOR DE RECETA" textFill="WHITE" />
-                  <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#CerrarClick" styleClass="cerrar" stylesheets="@../css/estilosBotonesVentana.css">
+                  <Label text="CREADOR DE RECETA" textFill="#173f4e" />
+                  <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#CerrarClick" styleClass="cerrar">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imagenes/ventanaConfi/close-thick.png" />
+                              <Image url="@../icons/window-close.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -38,16 +38,16 @@
                         <Insets left="180.0" />
                      </HBox.margin>
                   </Button>
-               </children>
+               </children> 
                <padding>
                   <Insets left="30.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="446.0" spacing="20.0">
                <children>
-                  <Label text="Titulo" textFill="WHITE" />
-                  <TextField fx:id="txtTitulo" promptText="Titulo" />
-                  <Label text="Autor" textFill="WHITE" />
+                  <Label text="Titulo" textFill="#173f4e" />
+                  <TextField fx:id="txtNombre" promptText="Nombre Receta" />
+                  <Label text="Autor" textFill="#173f4e" />
                   <TextField fx:id="txtAutor" prefHeight="26.0" prefWidth="146.0" promptText="Autor" />
                </children>
                <padding>
@@ -58,14 +58,14 @@
                <children>
                   <VBox prefHeight="87.0" prefWidth="177.0" spacing="20.0">
                      <children>
-                        <Label text="Pasos" textFill="WHITE" />
+                        <Label text="PasosReceta" textFill="#173f4e" />
                         <Slider fx:id="SliderPasos" majorTickUnit="2.0" max="15.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" />
                      </children>
                      <padding>
                         <Insets left="10.0" top="10.0" />
                      </padding>
                   </VBox>
-                  <Label text="Comensales" textFill="WHITE">
+                  <Label text="Comensales" textFill="#173f4e">
                      <HBox.margin>
                         <Insets left="30.0" top="10.0" />
                      </HBox.margin>
@@ -82,10 +82,10 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="446.0" spacing="20.0">
                <children>
-                  <Label text="Calorias" textFill="WHITE" />
+                  <Label text="Calorias" textFill="#173f4e" />
                   <TextField fx:id="txtCalorias" promptText="Calorias" />
-                  <Label text="Tiempo" textFill="WHITE" />
-                  <TextField fx:id="txtTiempo" prefHeight="26.0" prefWidth="126.0" promptText="Tiempo" />
+                  <Label text="Tiempo Prepa" textFill="#173f4e" />
+                  <TextField fx:id="txtTiempoPreparacion" prefHeight="26.0" prefWidth="126.0" promptText="TiempoPreparacion" />
                </children>
                <padding>
                   <Insets left="30.0" right="30.0" top="10.0" />
@@ -93,8 +93,8 @@
             </HBox>
             <HBox prefHeight="66.0" prefWidth="446.0" spacing="20.0">
                <children>
-                  <Label text="Tipo" textFill="WHITE" />
-                  <ComboBox fx:id="txtTipo" prefWidth="150.0" />
+                  <Label text="Tipo" textFill="#173f4e" />
+                  <ComboBox fx:id="txtTipoReceta" prefWidth="150.0" />
                </children>
                <padding>
                   <Insets left="30.0" right="30.0" top="10.0" />
@@ -104,8 +104,8 @@
                <children>
                   <VBox prefHeight="136.0" prefWidth="566.0" spacing="10.0">
                      <children>
-                        <Label text="Ingredientes" textFill="WHITE" />
-                        <TextArea fx:id="txaIngredientes" prefHeight="200.0" prefWidth="200.0" promptText="Tomates,Papas,..." />
+                        <Label text="Ingredientes" textFill="#173f4e" />
+                        <TextArea fx:id="txtIngredientes" prefHeight="200.0" prefWidth="200.0" promptText="Cebolla, ajo, y todos los ingredientes..." />
                      </children>
                      <padding>
                         <Insets left="30.0" right="30.0" top="10.0" />

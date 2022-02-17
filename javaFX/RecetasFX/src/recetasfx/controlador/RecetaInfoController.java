@@ -71,17 +71,10 @@ public class RecetaInfoController implements Initializable {
         RecetaDao recetaDao = new RecetaDao(db);
         Receta r = recetaDao.select(nombre);
         
-        if(r.getImagen() != null && !r.getImagen().isEmpty()){
-            Image imagen = new Image("recetasfx/imagenes/recetas/" + r.getImagen());
-            imgReceta.setImage(imagen);
-            Image img = new Image("recetasfx/imagenes/recetas/tipos/" + r.getTipoReceta() + ".png");
-            ImgTipo.setImage(img);
-        }else{
-            Image imagen = new Image("recetasfx/imagenes/item/food-fork-drink.png");
-            imgReceta.setImage(imagen);
-            Image img = new Image("recetasfx/imagenes/recetas/tipos/" + r.getTipoReceta()+".png");
-            ImgTipo.setImage(img);
-        }
+       
+        Image imagen = new Image("recetasfx/icons/food.png");
+        imgReceta.setImage(imagen);
+            
     }    
     
     
@@ -95,7 +88,7 @@ public class RecetaInfoController implements Initializable {
     @FXML
     private void AccederClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/ItemInfo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/RecetaDetalle.fxml"));
             Parent root = loader.load();
             RecetaDetalleController controller = loader.getController();
             controller.ponerDatos(this.txtTitulo.getText());
@@ -122,22 +115,22 @@ public class RecetaInfoController implements Initializable {
     @FXML
     private void EditarClick(ActionEvent event) {
         try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/ModificarReceta.fxml"));
-                        Parent root = loader.load();
-                        ModificarRecetaController controller = loader.getController();
-                        
-                        controller.getTitulo(nombre);
-                        
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.initStyle(StageStyle.UNDECORATED);
-                        stage.setScene(scene);
-                        stage.showAndWait();
-                        
-                    } catch (IOException ex) {
-                        //Logger.getLogger(BorrarRecetaDialogoController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/ModificarReceta.fxml"));
+            Parent root = loader.load();
+            ModificarRecetaController controller = loader.getController();
+
+            controller.getTitulo(nombre);
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.showAndWait();
+
+        } catch (IOException ex) {
+            //Logger.getLogger(BorrarRecetaDialogoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Stage gestionRecetaStage = (Stage) this.btnBorrar.getScene().getWindow();
         gestionRecetaStage.close();
         volverHome();

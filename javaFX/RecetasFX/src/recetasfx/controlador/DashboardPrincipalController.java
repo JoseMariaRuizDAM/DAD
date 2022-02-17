@@ -70,7 +70,7 @@ public class DashboardPrincipalController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
          try {       
-            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/Home.fxml"));
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/HomNuevo.fxml"));
             panel.getChildren().add(node);
         } catch (IOException ex) {
             Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +86,7 @@ public class DashboardPrincipalController implements Initializable {
         
         try {
             panel.getChildren().clear();
-            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/Home.fxml"));
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/HomNuevo.fxml"));
             panel.getChildren().add(node);
         } catch (IOException ex) {
             Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
@@ -153,7 +153,13 @@ public class DashboardPrincipalController implements Initializable {
     
     @FXML
     private void EstadisticaBoton(ActionEvent event) {
-        
+        try {       
+            panel.getChildren().clear();
+            Node node = (Node)FXMLLoader.load(getClass().getResource("/recetasfx/vista/EstadisticasMenu.fxml"));
+            panel.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**

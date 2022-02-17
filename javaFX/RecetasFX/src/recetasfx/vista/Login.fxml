@@ -23,7 +23,7 @@
                   <Insets left="80.0" top="50.0" />
                </HBox.margin>
             </ImageView>
-            <Text fill="#7c5d3d" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER">
+            <Text fill="#173f4e" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER">
                <font>
                   <Font name="Garamond Bold" size="36.0" />
                </font>
@@ -33,7 +33,7 @@
             </Text>
          </children>
       </HBox>
-      <Button fx:id="login_btn" layoutX="121.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="116.0" text="Entrar" textAlignment="CENTER" textFill="#6d8215">
+      <Button fx:id="login_btn" layoutX="121.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="116.0" text="Entrar" textAlignment="CENTER" textFill="#173f4e">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>

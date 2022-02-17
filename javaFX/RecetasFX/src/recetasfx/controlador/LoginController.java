@@ -72,10 +72,12 @@ public class LoginController implements Initializable {
                     rol = user.getRol();
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/DashboardPrincipal.fxml"));
-                        DashboardPrincipalController controller = new DashboardPrincipalController();
-                        controller.setRol(rol);
-                        loader.setController(controller);
                         Parent root = loader.load();
+                        DashboardPrincipalController controller = loader.getController();
+                        
+                        /*controller.setRol(rol);
+                        loader.setController(controller);
+                        Parent root = loader.load();*/
                         Scene scene = new Scene(root);
                         stage = new Stage();
                         stage.initStyle(StageStyle.UNDECORATED);

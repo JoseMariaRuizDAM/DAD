@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -17,28 +18,31 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="710.0" styleClass="Main" stylesheets="@../css/estilosHome.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="410.0" prefWidth="510.0" style="-fx-background-color: cebe9e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.HomeController">
    <children>
       <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" hmax="0.0" layoutX="12.0" layoutY="181.0" prefHeight="402.0" prefWidth="715.0">
          <content>
-            <VBox fx:id="scroll" prefHeight="385.0" prefWidth="699.0" spacing="20.0" styleClass="Main">
+            <VBox fx:id="scroll" prefHeight="385.0" prefWidth="699.0" spacing="20.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
          </content>
       </ScrollPane>
-      <HBox alignment="CENTER_LEFT" layoutX="-2.0" prefHeight="66.0" prefWidth="737.0" spacing="20.0" styleClass="Main" stylesheets="@../css/estilosHome.css">
+      <HBox alignment="CENTER_LEFT" layoutX="-2.0" prefHeight="66.0" prefWidth="737.0" spacing="20.0" style="-fx-background-color: #85AAAA;">
          <children>
             <ImageView fitHeight="49.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../imagenes/menu/home.png" />
+                  <Image url="@../icons/home-circle-outline.png" />
                </image>
             </ImageView>
-            <Label prefHeight="18.0" prefWidth="140.0" styleClass="texto" text="HOME" />
+            <Label prefHeight="18.0" prefWidth="140.0" styleClass="texto" text="HOME">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
             <TextField promptText="Receta" styleClass="buscador">
                <HBox.margin>
                   <Insets left="300.0" right="25.0" />
@@ -48,16 +52,22 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" layoutX="12.0" layoutY="86.0" prefHeight="50.0" prefWidth="715.0" spacing="20.0" AnchorPane.bottomAnchor="473.6" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="8.399999999999977" AnchorPane.topAnchor="86.0">
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#AgregarReceta" styleClass="btnOpcionesSecundarias" stylesheets="@../css/estilos.css" text="Agregar" textFill="WHITE">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#AgregarRec" text="Agregar" textFill="#173f4e">
                <HBox.margin>
                   <Insets right="300.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
-            <ComboBox prefWidth="150.0" styleClass="btnOpcionesMain" stylesheets="@../css/estilos.css" />
-            <Button fx:id="btnFiltrar" mnemonicParsing="false" styleClass="btnLogin" stylesheets="@../css/estilos.css" text="Filtrar">
+            <ComboBox prefWidth="150.0" />
+            <Button fx:id="btnFiltrar" mnemonicParsing="false" text="Filtrar" textFill="#173f4e">
                <HBox.margin>
                   <Insets right="40.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Button>
          </children>
       </HBox>

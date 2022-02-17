@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/estilosCSS.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.DashboardPrincipalController">
    <top>
       <HBox alignment="CENTER_RIGHT" prefHeight="63.0" prefWidth="829.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -17,7 +17,7 @@
                   <Image url="@../icons/logoRecipes.PNG" />
                </image>
                <HBox.margin>
-                  <Insets right="430.0" />
+                  <Insets right="640.0" />
                </HBox.margin>
             </ImageView>
             <Button fx:id="minVentana" mnemonicParsing="false" onAction="#minVentana" prefHeight="39.0" prefWidth="36.0" text="Button">
@@ -56,7 +56,7 @@
    <left>
       <VBox prefHeight="358.0" prefWidth="163.0" style="-fx-background-color: #85AAAA;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="homeBoton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#HomeBoton" prefHeight="39.0" prefWidth="299.0" style="-fx-background-color: none;" text="Home">
+            <Button fx:id="homeBoton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#HomeBoton" prefHeight="39.0" prefWidth="299.0" styleClass="botonesMenuPrincipal" text="Home" textFill="#173f4e">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="InformacionBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#InformacionBoton" prefHeight="39.0" prefWidth="287.0" style="-fx-background-color: none;" text="Información Nutricional">
+            <Button fx:id="InformacionBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#InformacionBoton" prefHeight="39.0" prefWidth="287.0" styleClass="botonesMenuPrincipal" text="Información Nutricional" textFill="#173f4e">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,7 +80,7 @@
                   <Font name="System Bold" size="10.0" />
                </font>
             </Button>
-            <Button fx:id="BuscadorBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#BuscadorBoton" prefHeight="39.0" prefWidth="530.0" style="-fx-background-color: none;" text="Buscador Recetas">
+            <Button fx:id="BuscadorBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#BuscadorBoton" prefHeight="39.0" prefWidth="530.0" styleClass="botonesMenuPrincipal" text="Buscador Recetas" textFill="#173f4e">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -92,7 +92,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="NotasBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#NotasBoton" prefHeight="39.0" prefWidth="627.0" style="-fx-background-color: none;" text="Poner Notas">
+            <Button fx:id="NotasBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#NotasBoton" prefHeight="39.0" prefWidth="627.0" styleClass="botonesMenuPrincipal" text="Poner Notas" textFill="#173f4e">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -104,7 +104,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="UsuarioBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#UsuarioBoton" prefHeight="39.0" prefWidth="685.0" style="-fx-background-color: none;" text="Gestion Usuarios">
+            <Button fx:id="UsuarioBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#UsuarioBoton" prefHeight="39.0" prefWidth="685.0" styleClass="botonesMenuPrincipal" text="Gestion Usuarios" textFill="#173f4e">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -116,7 +116,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="EstadisticaBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#EstadisticaBoton" prefHeight="39.0" prefWidth="618.0" style="-fx-background-color: none;" text="Estadisticas">
+            <Button fx:id="EstadisticaBoton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#EstadisticaBoton" prefHeight="39.0" prefWidth="618.0" styleClass="botonesMenuPrincipal" text="Estadisticas" textFill="#173f4e">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -128,7 +128,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="cerrarSesion" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="39.0" prefWidth="705.0" style="-fx-background-color: none;" text="Cerrar Sesion">
+            <Button fx:id="cerrarSesion" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="39.0" prefWidth="705.0" styleClass="botonesMenuPrincipal" text="Cerrar Sesion" textFill="#173f4e">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>

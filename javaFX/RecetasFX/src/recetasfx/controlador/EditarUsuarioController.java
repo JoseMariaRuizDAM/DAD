@@ -63,7 +63,9 @@ public class EditarUsuarioController implements Initializable {
     @FXML
     private void ModificarClick(ActionEvent event) {
         
-        if(txtNombre.getText()!=null && !txtNombre.getText().isEmpty() && txtContraseña.getText()!=null && !txtContraseña.getText().isEmpty() && cbxRol.getSelectionModel().getSelectedItem()!=null){
+        if(txtNombre.getText()!= null && !txtNombre.getText().isEmpty() 
+                && txtContraseña.getText()!= null && !txtContraseña.getText().isEmpty() 
+                && cbxRol.getSelectionModel().getSelectedItem()!= null){
             try {
                 Usuario modificado = new Usuario(txtNombre.getText(),txtContraseña.getText(),cbxRol.getSelectionModel().getSelectedItem());
                 UsuarioDao userDao = new UsuarioDao(db);
@@ -71,12 +73,12 @@ public class EditarUsuarioController implements Initializable {
                 Stage stage = (Stage) this.btnCerrar.getScene().getWindow();
                 stage.close();
             } catch (SQLException ex) {
-                //Logger.getLogger(ModificarUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EditarUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         
         }else{
-            //mandarError(ERROR_EDITAR_USUARIO_TITULO, ERROR_EDITAR_USUARIO_TEXTO);
+            
         }
     }
     

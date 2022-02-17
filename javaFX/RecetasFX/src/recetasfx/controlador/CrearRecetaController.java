@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -43,26 +46,24 @@ public class CrearRecetaController implements Initializable {
     
     Stage stage;
     private Button cerrarBtn;
-    private TextField txtNombre;
     @FXML
     private TextField txtAutor;
     @FXML
     private TextField txtCalorias;
     @FXML
-    private TextField txtTiempo;
-    private TextArea txtIngredientes;
+    private TextField txtTiempoPreparacion;
     @FXML
     private Button btnCerrar;
     @FXML
-    private TextField txtTitulo;
+    private TextField txtNombre;
     @FXML
     private Slider SliderPasos;
     @FXML
     private Spinner<Integer> spinerComensales;
     @FXML
-    private ComboBox<String> txtTipo;
+    private ComboBox<String> txtTipoReceta;
     @FXML
-    private TextArea txaIngredientes;
+    private TextArea txtIngredientes;
     @FXML
     private Button btnCrear;
 
@@ -71,65 +72,19 @@ public class CrearRecetaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20);
+        valueFactory.setValue(1);
+        
+        spinerComensales.setValueFactory(valueFactory);
+        
+        ObservableList list = FXCollections.observableArrayList("Entrante","Primero","Segundo","Postre");
+        txtTipoReceta.setItems(list);
+        txtTipoReceta.getSelectionModel().select(0);
     }    
 
     private void cerrarClick(ActionEvent event) {
         stage = (Stage) this.cerrarBtn.getScene().getWindow();
         stage.close();
-    }
-
-    private void CrearRecetaClick(ActionEvent event) {
-        DbConnection db = new DbConnection();
-        RecetaDao recetaDao = new RecetaDao(db);
-
-        if (!txtNombre.getText().isEmpty() &&
-                !txtAutor.getText().isEmpty() &&
-                !txtCalorias.getText().isEmpty() &&
-                !txtIngredientes.getText().isEmpty() &&
-                !txtTipo.getValue().isEmpty() &&
-                txtTipo != null) {
-            
-            nombre = txtNombre.getText();
-            autor = txtAutor.getText();
-            calorias = Integer.parseInt(txtCalorias.getText());
-            tiempoReceta = Integer.parseInt(txtTiempo.getText());
-            ingredientes = txtIngredientes.getText();
-            pasos = (int) SliderPasos.getValue();
-            comensales = spinerComensales.getValue();
-            tipoReceta = txtTipo.getSelectionModel().getSelectedItem();
-
-            imagen = "food-fork-drink.png";
-
-            Receta receta = new Receta(nombre, autor, tipoReceta, ingredientes, imagen, pasos, comensales, tiempoReceta, calorias);
-            try {
-                recetaDao.insert(receta);
-            } catch (SQLException ex) {
-                Logger.getLogger(CrearRecetaController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            /*
-            try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app_recetas/vista/CreadoModificadoDialogo.fxml"));
-            Parent root = loader.load();
-            CreadoModificadoDialogoController controller = loader.getController();
-            controller.setTitulo(RECETA_TITULO_CREADO);
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        Stage stagecrear = (Stage) this.cerrarBtn.getScene().getWindow();
-        stagecrear.close();
-
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Error campos vacios");
-            alert.showAndWait();
-        }
     }
 
     @FXML
@@ -138,17 +93,19 @@ public class CrearRecetaController implements Initializable {
         DbConnection db = new DbConnection();
         RecetaDao recetaDao = new RecetaDao(db);
 
-        if (!txtTitulo.getText().isEmpty() && !txtAutor.getText().isEmpty() && !txtCalorias.getText().isEmpty() && !txaIngredientes.getText().isEmpty() && !txtTipo.getValue().isEmpty() && txtTipo != null) {
-            nombre = txtTitulo.getText();
+        if (!txtNombre.getText().isEmpty() && !txtAutor.getText().isEmpty() 
+                && !txtCalorias.getText().isEmpty() && !txtIngredientes.getText().isEmpty() 
+                && !txtTipoReceta.getValue().isEmpty() && txtTipoReceta != null) {
+            nombre = txtNombre.getText();
             autor = txtAutor.getText();
             calorias = Integer.parseInt(txtCalorias.getText());
-            tiempoReceta = Integer.parseInt(txtTiempo.getText());
-            ingredientes = txaIngredientes.getText();
+            tiempoReceta = Integer.parseInt(txtTiempoPreparacion.getText());
+            ingredientes = txtIngredientes.getText();
             pasos = (int) SliderPasos.getValue();
             comensales = spinerComensales.getValue();
-            tipoReceta = txtTipo.getSelectionModel().getSelectedItem();
+            tipoReceta = txtTipoReceta.getSelectionModel().getSelectedItem();
 
-            imagen = "food-fork-drink.png";
+            imagen = "food.png";
 
             Receta receta = new Receta(nombre, autor, tipoReceta, ingredientes, imagen, pasos, comensales, tiempoReceta, calorias);
             try {
@@ -156,23 +113,8 @@ public class CrearRecetaController implements Initializable {
             } catch (SQLException ex) {
                 Logger.getLogger(CrearRecetaController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            /*
-            try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app_recetas/vista/CreadoModificadoDialogo.fxml"));
-            Parent root = loader.load();
-            CreadoModificadoDialogoController controller = loader.getController();
-            controller.setTitulo(RECETA_TITULO_CREADO);
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        Stage stagecrear = (Stage) this.btnCerrar.getScene().getWindow();
-        stagecrear.close();
+            Stage stage = (Stage) this.btnCrear.getScene().getWindow();
+            stage.close();
 
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

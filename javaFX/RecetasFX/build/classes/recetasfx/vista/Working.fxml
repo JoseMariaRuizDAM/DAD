@@ -8,7 +8,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="437.0" style="-fx-background-color: cebe9e;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recetasfx.controlador.WorkingController">
    <top>
-      <Label text="En Construcción" textFill="#6d8215" BorderPane.alignment="CENTER">
+      <Label text="En Construcción" textFill="#173f4e" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="29.0" />
          </font>
@@ -22,7 +22,7 @@
       </Label>
    </top>
    <center>
-      <Label text="Disculpe las molestias" textFill="#b3b24a" BorderPane.alignment="CENTER">
+      <Label text="Disculpe las molestias" textFill="#85aaaa" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

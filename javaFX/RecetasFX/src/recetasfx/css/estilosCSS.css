@@ -1,0 +1,17 @@
+.botonesTexto{
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-background-color: #1D2731;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+    -fx-text-fill: #ffffff;
+}
+
+.botonesMenuPrincipal{
+    -fx-background-color: transparent;
+}
+
+.botonesMenuPrincipal:hover{
+    -fx-background-color: #A65111;
+}
+

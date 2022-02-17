@@ -20,11 +20,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import recetasfx.controlador.CrearRecetaController;
+import recetasfx.controlador.DashboardPrincipalController;
+import recetasfx.controlador.RecetaInfoController;
 import recetasfx.modelo.DAO.RecetaDao;
 import recetasfx.modelo.connection.DbConnection;
 import recetasfx.modelo.entities.Receta;
@@ -36,11 +38,6 @@ import recetasfx.modelo.entities.Receta;
  */
 public class HomeController implements Initializable {
 
-    
-    private Button addButton;
-    
-    ArrayList<Receta> listaRecetas;
-    DbConnection db;
     @FXML
     private ScrollPane scrollpane;
     @FXML
@@ -49,7 +46,10 @@ public class HomeController implements Initializable {
     private Button btnAgregar;
     @FXML
     private Button btnFiltrar;
-    
+    private Button addButton;
+    ArrayList<Receta> listaRecetas;
+    DbConnection db;
+
     /**
      * Initializes the controller class.
      */
@@ -70,20 +70,12 @@ public class HomeController implements Initializable {
             try {
                 scroll.getChildren().add((Node) loader.load());
             } catch (IOException ex) {
-                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(recetasfx.controlador.HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }    
 
-    /**
-     * Función que se ejecuta cuando se presiona
-     * en el botón de agregar para añadir una nueva receta,
-     * Abrira una nueva vista para crear y añadir la receta.
-     * @param event 
-     */
-    @FXML
     private void AgregarReceta(ActionEvent event) {
-        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/recetasfx/vista/CrearReceta.fxml"));
             Parent root = loader.load();
@@ -97,7 +89,7 @@ public class HomeController implements Initializable {
             stage.showAndWait();
 
         } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(recetasfx.controlador.HomeController.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
         Stage gestionRecetaStage = (Stage) this.addButton.getScene().getWindow();
@@ -120,9 +112,12 @@ public class HomeController implements Initializable {
             stage.setScene(scene);
             stage.show();
             
-        } catch (IOException ex) {
-           
+        } catch (IOException ex) {           
         }
-        
     }
+
+    @FXML
+    private void AgregarRec(ActionEvent event) {
+    }
+    
 }
