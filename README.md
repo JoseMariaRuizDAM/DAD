@@ -1,3 +1,3 @@
 # DAD
 
-Voy a crear este README para probar a subir cosas desde gitbash
+Este repositorio es de la asignatura de 2º de DAM de Desarrollo de Interfaces (DAD)
